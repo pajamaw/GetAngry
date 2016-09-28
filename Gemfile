@@ -15,6 +15,14 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+source 'https://rails-assets.org' do
+  gem 'rails-assets-bootstrap-sass-official'
+  gem 'rails-assets-angular'
+end
+
+###It automatically converts the packaged components
+## into gems that are easily droppable into your
+##asset pipeline and stay up to date.
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
