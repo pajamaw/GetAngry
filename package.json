@@ -1,0 +1,32 @@
+{
+  "name": "getangry",
+  "version": "1.0.0",
+  "description": "frontend dependencies",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pajamaw/GetAngry.git"
+  },
+  "keywords": [
+    "angular",
+    "rails",
+    "5.0",
+    "api",
+    "bower"
+  ],
+  "author": "pj wickwire",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pajamaw/GetAngry/issues"
+  },
+  "homepage": "https://github.com/pajamaw/GetAngry#readme",
+  "dependencies": {
+    "bower": "^1.7.9"
+  }
+}
