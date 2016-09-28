@@ -15,4 +15,8 @@
 //= require turbolinks
 //= require bootstrap-sass
 //= require angular
-//= require_tree .
+//= require angular-rails-templates
+//= require angular-devise
+//= require angular-ui-router
+//= require angular-resource
+//= require_tree ./templates

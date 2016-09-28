@@ -1,0 +1,17 @@
+.angular-google-map-container { 
+  height: 600px;
+}
+
+.editable-click {
+  color: black;
+  border-bottom: none;
+}
+
+.editable-click:hover  {
+  text-color:grey;
+  border-bottom: none;
+}
+
+button.remove {
+  margin: 10px, 10px, 100px, 10px;
+}
