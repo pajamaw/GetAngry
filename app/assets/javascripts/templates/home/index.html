@@ -6,7 +6,7 @@
     <h2>Angular Initial Test:</h2>
     <article>
       <header>
-        <h3 ng-init="ctrl.user.user.username ? ctrl.user.user.username : what">Hello, {{what}}          <span>{{ctrl.user.user.username}}</span>
+        <h3 ng-init="ctrl.user.username ? ctrl.user.username : what">Hello, {{what || ctrl.user.username}}
 </h3>
       </header>
       <section>
