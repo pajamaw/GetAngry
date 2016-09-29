@@ -1,6 +1,6 @@
 app.controller('NavController', NavController)
 
-function NavController($scope, Auth){
+function NavController($scope, $state,Auth){
   $scope.signedIn = Auth.isAuthenticated;
   $scope.logout = Auth.logout;
 
@@ -18,6 +18,7 @@ function NavController($scope, Auth){
 
   $scope.$on('devise:logout', function(e, user){
     $scope.user = {};
+    $state.reload();
   });
 
   $scope.$on('devise:destroy-registration', function(e, user){
