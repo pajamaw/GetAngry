@@ -20,8 +20,8 @@
             <!---<label for="name">Name</label>--->
 
             <input class="form-control"
-
-              type="number"
+              type="text"
+              pattern="[0-9]{5}"
               name="zipCode"
               placeholder="Enter a ZIP Code"
               autofocus
@@ -31,6 +31,6 @@
       </section>
     </article>
     <br /><br />
-    <a class="btn btn-success"> This is test for bootstrap </a>
+    <a class="btn btn-success" ng-model="zipCode"> This is test for bootstrap </a>
   </div>
 </div>
