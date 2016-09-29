@@ -10,9 +10,10 @@
 
   </head>
   <div class="col-xs-6 col-xs-offset-4">
-       <div ng-include src="'nav/nav.html'"></div>
+    <div ng-include src="'nav/nav.html'"></div>
   </div>
   <body ng-app="app">
+
     <% devise_flash %>
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">

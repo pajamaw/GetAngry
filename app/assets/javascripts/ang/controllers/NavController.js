@@ -14,11 +14,14 @@ function NavController($scope, $state,Auth){
 
   $scope.$on('devise:login', function (e, user){
     $scope.user = user;
+    $state.go('profile')
   });
 
   $scope.$on('devise:logout', function(e, user){
     $scope.user = {};
-    $state.reload();
+    window.location.href = $state.href('home', {absolute: true});
+    // reload the page
+    window.location.reload();
   });
 
   $scope.$on('devise:destroy-registration', function(e, user){

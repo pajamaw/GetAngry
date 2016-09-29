@@ -13,7 +13,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'AuthController',
       onEnter: ['$state', 'Auth', function($state, Auth){
         Auth.currentUser().then(function(){
-          $state.go('home');
+          $state.go('profile');
         })
       }]
     })
@@ -23,9 +23,14 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'AuthController',
       onEnter: ['$state', 'Auth', function($state, Auth){
         Auth.currentUser().then(function(){
-          $state.go('home');
+          $state.go('profile');
         })
       }]
-    });
+    })
+    .state('profile', {
+      url: '/profile',
+      templateUrl: 'profile/profile.html',
+      controller: 'ProfileController as ctrl'
+    })
     $urlRouterProvider.otherwise('/')
 })

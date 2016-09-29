@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+###curl "https://www.googleapis.com/civicinfo/v2/voterinfo?key=AIzaSyAZNGZIwjGuoZDHqrRt7zT0w5dokt7Qzng&address=1263%20Pacific%20Ave.%20Kansas%20City%20KS&electionId=2000"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
