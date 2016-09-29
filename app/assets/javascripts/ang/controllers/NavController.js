@@ -1,26 +1,26 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div ng-controller="NavController">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" ui-sref="home">GetAngry</a>
-    </div>
+app.controller('NavController', NavController)
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a ui-sref="home">Home<span class="sr-only">(current)</span></a></li>
-        <li ng-hide="signedIn()"><a ui-sref="login">Log In</a></li>
-        <li ng-hide="signedIn()"><a ui-sref="register">Register</a></li>
-        <li ng-show="signedIn()"><a ui-sref="home">Profile</a></li>
-        <li ng-show="signedIn()"><a ng-click="logout()"</a>Logout</li>
+function NavController($scope, Auth){
+  $scope.signedIn = Auth.isAuthenticated;
+  $scope.logout = Auth.logout;
 
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div>
-</nav>
+  Auth.currentUser().then(function (user){
+    $scope.user = user;
+  });
+
+  $scope.$on('devise:new-registration', function (e, user){
+    $scope.user = user;
+  });
+
+  $scope.$on('devise:login', function (e, user){
+    $scope.user = user;
+  });
+
+  $scope.$on('devise:logout', function(e, user){
+    $scope.user = {};
+  });
+
+  $scope.$on('devise:destroy-registration', function(e, user){
+    $scope.user = {};
+  });
+};

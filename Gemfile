@@ -17,6 +17,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'pg'
 gem 'angular-rails-templates'
 gem 'active_model_serializers'
+gem 'angular_rails_csrf', :git => 'git://github.com/AlanDonohoe/angular_rails_csrf'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 source 'https://rails-assets.org' do

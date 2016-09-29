@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/AlanDonohoe/angular_rails_csrf
+  revision: 35cbb74bebd9c0022876fb8a48a91ee05bf873c8
+  specs:
+    angular_rails_csrf (1.0.4)
+      rails (>= 5, >= 3)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -185,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   angular-rails-templates
+  angular_rails_csrf!
   byebug
   coffee-rails (~> 4.2)
   devise

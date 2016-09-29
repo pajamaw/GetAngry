@@ -1,6 +1,12 @@
-var app = angular.module('app' ['ui-router', 'ngResource', 'Devise', 'templates'])
+var app = angular.module('app', ['ui.router', 'ngResource', 'Devise', 'templates']);
+
 app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
+    .state('home', {
+      url: '/',
+      templateUrl: 'home/index.html',
+      controller: 'HomeController'
+    })
     .state('login',{
       url: '/login',
       templateUrl: 'auth/_login.html',
@@ -21,4 +27,5 @@ app.config(function($stateProvider, $urlRouterProvider){
         })
       }]
     });
+    $urlRouterProvider.otherwise('/')
 })
