@@ -5,6 +5,53 @@ GIT
     angular_rails_csrf (1.0.4)
       rails (>= 5, >= 3)
 
+GIT
+  remote: https://github.com/rspec/rspec-core.git
+  revision: 5875d9f440378f78e0c4b0c20b326730ab2ce924
+  branch: master
+  specs:
+    rspec-core (3.6.0.pre)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-expectations.git
+  revision: 8343affb9b290d494a0793e894a83f77e28eff5c
+  branch: master
+  specs:
+    rspec-expectations (3.6.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-mocks.git
+  revision: 0c87b91d32f4f827d2c1953935adcfd5468263a5
+  branch: master
+  specs:
+    rspec-mocks (3.6.0.pre)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-rails.git
+  revision: 2175c72f42ebd40c946ccc45fe3a2ad0caa8df6f
+  branch: master
+  specs:
+    rspec-rails (3.6.0.pre)
+      actionpack (>= 3.0)
+      activesupport (>= 3.0)
+      railties (>= 3.0)
+      rspec-core (= 3.6.0.pre)
+      rspec-expectations (= 3.6.0.pre)
+      rspec-mocks (= 3.6.0.pre)
+      rspec-support (= 3.6.0.pre)
+
+GIT
+  remote: https://github.com/rspec/rspec-support.git
+  revision: 357ca45a15819b1b452e50f57f5df197710f7182
+  branch: master
+  specs:
+    rspec-support (3.6.0.pre)
+
 GEM
   remote: https://rubygems.org/
   remote: https://rails-assets.org/
@@ -50,6 +97,7 @@ GEM
       i18n (~> 0.7)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     angular-rails-templates (1.0.0)
       railties (>= 4.2, < 6)
       sprockets (~> 3.0)
@@ -63,6 +111,15 @@ GEM
       sass (>= 3.3.4)
     builder (3.2.2)
     byebug (9.0.5)
+    capybara (2.8.1)
+      addressable
+      mime-types (>= 1.16)
+      nokogiri (>= 1.3.3)
+      rack (>= 1.0.0)
+      rack-test (>= 0.5.4)
+      xpath (~> 2.0)
+    childprocess (0.5.9)
+      ffi (~> 1.0, >= 1.0.11)
     coffee-rails (4.2.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.2.x)
@@ -71,6 +128,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.2)
+    database_cleaner (1.5.3)
     debug_inspector (0.0.2)
     devise (4.1.1)
       bcrypt (~> 3.0)
@@ -78,6 +136,7 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
+    diff-lcs (1.2.5)
     dotenv (2.1.1)
     dotenv-rails (2.1.1)
       dotenv (= 2.1.1)
@@ -155,6 +214,7 @@ GEM
       ffi (>= 0.5.0)
     responders (2.2.0)
       railties (>= 4.2.0, < 5.1)
+    rubyzip (1.2.0)
     sass (3.4.22)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -162,6 +222,10 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    selenium-webdriver (2.53.0)
+      childprocess (~> 0.5)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0)
     spring (1.7.2)
     spring-watcher-listen (2.0.0)
       listen (>= 2.7, < 4.0)
@@ -191,9 +255,12 @@ GEM
       activemodel (>= 5.0)
       debug_inspector
       railties (>= 5.0)
+    websocket (1.2.3)
     websocket-driver (0.6.4)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
+    xpath (2.0.0)
+      nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
@@ -204,7 +271,9 @@ DEPENDENCIES
   angular_rails_csrf!
   bootstrap-sass
   byebug
+  capybara
   coffee-rails (~> 4.2)
+  database_cleaner
   devise
   dotenv-rails
   jbuilder (~> 2.5)
@@ -216,7 +285,13 @@ DEPENDENCIES
   rails-assets-angular!
   rails-assets-angular-devise!
   rails-assets-bootstrap-sass-official!
+  rspec-core!
+  rspec-expectations!
+  rspec-mocks!
+  rspec-rails!
+  rspec-support!
   sass-rails (~> 5.0)
+  selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

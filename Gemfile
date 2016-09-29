@@ -8,6 +8,7 @@ gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
+gem 'capybara'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
@@ -39,6 +40,8 @@ gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'database_cleaner'
+gem 'selenium-webdriver'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
@@ -47,10 +50,16 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
 end
+
+
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
