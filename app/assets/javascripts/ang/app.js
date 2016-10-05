@@ -8,7 +8,7 @@ app.config(function($stateProvider, $urlRouterProvider){
       resolve: {
         bill: 'bill',
         bills: function(bill){
-           return bill.get()
+           return bill.get();
         }
       },
       controller: 'HomeController as ctrl'

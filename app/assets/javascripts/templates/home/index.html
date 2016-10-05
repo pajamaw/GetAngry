@@ -10,18 +10,20 @@
           </h3>
           ----->
       <section class="text-center">
-        <form class="form-inline">
+        <form class="form-inline" ng-submit="ctrl.resetBills(ctrl.state)">
           <div class="form-group">
 
             <!---<label for="name">Name</label>--->
-
-            <input class="form-control"
-              type="text"
+            <!--  type="text"
               pattern="[0-9]{5}"
               name="zipCode"
               placeholder="Enter a ZIP Code"
-              autofocus
-              ng-model="zipCode">
+              autofocus-->
+            <input class="form-control"
+              placeholder="Enter your two character State Code"
+              ng-model="ctrl.state">
+              <button type="submit" class="btn btn-success btn-lg btn-block"
+            > Click to see where you end up! </button>
           </div>
         </form>
       </section>
@@ -31,7 +33,7 @@
 </div>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <a class="btn btn-success btn-lg btn-block" ng-model="zipCode"> Click to see where you end up! </a>
+
   </div>
 </div>
 <br>
@@ -78,7 +80,11 @@
         </tr>
       </tbody>
     </table>
-    <a class="btn btn-success" ng-click="ctrl.expand()">View Another 10 Bills</a>
+
   </div>
 </div>
+<div class="row">
+  <div class="col-md-2 col-md-offset-6">
+    <a class="btn btn-success" ng-click="ctrl.expand()">View Another 10 Bills</a>
+  </div>
 </div>

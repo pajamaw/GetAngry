@@ -1,8 +1,9 @@
-app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills){
+app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill){
   var ctrl = this;
   ctrl.reps = {};
   ctrl.bills = bills
 
+  ctrl.state = "NY";
   console.log(bills)
   ctrl.billLimit = 5;
   ctrl.billBeginning = 0;
@@ -12,9 +13,27 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     checkBills();
   }
 
+
+  Auth.currentUser()
+    .then(function(user){
+      console.log(user)
+      ctrl.user = user
+      console.log(ctrl.user)
+      console.log(ctrl.user.username)
+    })
+    ///console.log(ctrl.user)
+
+  ///  console.log(ctrl)
+  Rep.get(function(data) {
+    ctrl.reps = data;
+  });
+
   ctrl.billsData = [];
 
+
   var checkBills = function(){
+    console.log('anything')
+    console.log(ctrl.state)
     for(var i = ctrl.billBeginning;i < ctrl.billLimit; i++){
       ctrl.billsData.push(ctrl.bills.masterlist[i])
     }
@@ -25,6 +44,19 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 //hacky ass way to get it since the promise is being annoying
   $timeout(checkBills, 2000)
 
+  ctrl.resetBills = function(sa){
+    console.log('resetting')
+    console.log(sa)
+    ctrl.bills;
+    ctrl.reps;
+
+    ctrl.billsData =[]
+    ctrl.billBeginning = 0;
+    ctrl.billLimit = 5;
+    ctrl.reps = Rep.get({state: sa})
+    ctrl.bills = bill.get({state: sa});
+    $timeout(checkBills, 2000)
+  }
   //ctrl.bills = bills;
 
 //  ctrl.resolve = {
@@ -54,21 +86,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
 
 
-  Auth.currentUser()
-    .then(function(user){
-      console.log(user)
-      ctrl.user = user
-      console.log(ctrl.user)
-      console.log(ctrl.user.username)
-    })
-    ///console.log(ctrl.user)
 
-  ///  console.log(ctrl)
-
-  ctrl.zipCode = {};
-  Rep.get(function(data) {
-    ctrl.reps = data;
-  });
 
   //ctrl.bills = bills
 //  Bill.get(function(data){
