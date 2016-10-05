@@ -1,19 +1,18 @@
-app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill){
+app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill, zipServ){
   var ctrl = this;
   ctrl.reps = {};
   ctrl.bills = bills
-
+  ctrl.zipCode;
   ctrl.state = "NY";
   console.log(bills)
   ctrl.billLimit = 5;
   ctrl.billBeginning = 0;
+  $timeout(checkBills, 2000)
 
   ctrl.expand = function() {
     ctrl.billLimit += 10;
     checkBills();
   }
-
-
   Auth.currentUser()
     .then(function(user){
       console.log(user)
@@ -28,10 +27,32 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     ctrl.reps = data;
   });
 
+  ctrl.stateData;
   ctrl.billsData = [];
+  var checkFormat = function(zipInput){
+    console.log('Am I a number?' + !isNaN(zipInput))
+    if(!isNaN(zipInput)){
+      //return changeToState(zipInput)
+      ctrl.stateData = zipServ.get({zip: zipInput})
+      //$timeout(waitForGoogle, 5000)
+    //  ctrl.state = ctrl.stateData
+      console.log(ctrl.state)
+      console.log('cahnge2state')
+      console.log(ctrl.state)
+    }
+    ctrl.state = zipInput
+    console.log('not a zipcode')
+  }
 
+  var changeToState = function(){
+    ctrl.state = ctrl.stateData.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, '')
+    ///ctrl.zipCode = response.results[0].address_components[4].short_name
+    console.log('cahnge2state after waiting')
+    console.log(ctrl.state.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, ''))
+  }
 
   var checkBills = function(){
+
     console.log('anything')
     console.log(ctrl.state)
     for(var i = ctrl.billBeginning;i < ctrl.billLimit; i++){
@@ -42,21 +63,26 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     console.log(ctrl.billsData)
   };
 //hacky ass way to get it since the promise is being annoying
-  $timeout(checkBills, 2000)
 
-  ctrl.resetBills = function(sa){
+  ctrl.resetBillsAndReps = function(sa){
+    checkFormat(sa);
     console.log('resetting')
     console.log(sa)
-    ctrl.bills;
-    ctrl.reps;
 
     ctrl.billsData =[]
     ctrl.billBeginning = 0;
     ctrl.billLimit = 5;
-    ctrl.reps = Rep.get({state: sa})
-    ctrl.bills = bill.get({state: sa});
-    $timeout(checkBills, 2000)
+    console.log('check' + sa + ctrl.state)
+    ctrl.zipCode = sa;
+    $timeout(changeToState, 500)
+    $timeout(updateInfo, 1000)
+  //
   }
+    var updateInfo = function(){
+      ctrl.reps = Rep.get({state: ctrl.zipCode})
+      ctrl.bills = bill.get({state: ctrl.state});
+      $timeout(checkBills, 2000)
+    }
   //ctrl.bills = bills;
 
 //  ctrl.resolve = {

@@ -1,24 +1,11 @@
-# README
+### README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+##GetAngry
+#GetInvolved
 
-Things you may want to cover:
+ * You'll need three items for this repo
+ ** A Civic voter info google api key
+ ** a legiscan api key
+ ** a google geocode api key
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ load those up and take a test drive!
