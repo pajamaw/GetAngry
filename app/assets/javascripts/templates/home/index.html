@@ -1,19 +1,15 @@
 
  <div class="row">
-  <div class="col-md-6">
-    <h2>Hello {{ctrl.user.username ? ctrl.user.username : 'there'}}, What neighborhood are you interested in?</h2>
+  <div class="col-md-12">
+    <h2 class="text-center">Hello {{ctrl.user.username ? ctrl.user.username : 'there'}}, what neighborhood are you interested in?</h2>
     <article>
-      <header>
       <!---cool ternary expression i was playing with
-
 
         <h3 ng-init="ctrl.user.username ? ctrl.user.username : what">Hello, {{what || ctrl.user.username}}
 
-
           </h3>
           ----->
-      </header>
-      <section>
+      <section class="text-center">
         <form class="form-inline">
           <div class="form-group">
 
@@ -31,6 +27,58 @@
       </section>
     </article>
     <br /><br />
-    <a class="btn btn-success" ng-model="zipCode"> This is test for bootstrap </a>
   </div>
+</div>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <a class="btn btn-success btn-lg btn-block" ng-model="zipCode"> Click to see where you end up! </a>
+  </div>
+</div>
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-4" id="reps">
+    <table ng-model="ctrl.reps" class="active table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Position</th>
+          <th>Name</th>
+          <th>Party</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="Reps" ng-repeat="office in ctrl.reps['offices']">
+          <td>{{office.name}}</td>
+          <td>{{ctrl.reps['officials'][$index].name}}</td>
+          <td>{{ctrl.reps['officials'][$index].party}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-8" id="bills">
+    <table  ng-model="ctrl.bills" class="active table-striped table-hover">
+      <thead>
+        <tr>
+          <th>Bill ID</th>
+          <th>Title</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="Bills" ng-repeat="Bill in ctrl.billsData" > <!--ng-if ="$index < 5"-->
+          <td>{{Bill.number}}</td>
+          <td><a href="{{Bill.state_link}}">{{Bill.title}}</a></td>
+          <td>{{Bill.last_action_date}}</td>
+
+          <!--okay so i need to do another request to get the url of a state-->
+          <!--<td>{{Bill.history.date}}</td>--->
+<!--ng-repeat="Bill in ctrl.bills['masterlist'][0] | "-->
+        </tr>
+      </tbody>
+    </table>
+    <a class="btn btn-success" ng-click="ctrl.expand()">View Another 10 Bills</a>
+  </div>
+</div>
 </div>

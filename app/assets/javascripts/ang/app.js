@@ -5,7 +5,14 @@ app.config(function($stateProvider, $urlRouterProvider){
     .state('home', {
       url: '/',
       templateUrl: 'home/index.html',
+      resolve: {
+        bill: 'bill',
+        bills: function(bill){
+           return bill.get()
+        }
+      },
       controller: 'HomeController as ctrl'
+
     })
     .state('login',{
       url: '/login',

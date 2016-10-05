@@ -1,0 +1,7 @@
+app.factory('CivicEnv', function () {
+return {
+    getMySecretEnv: function () {
+        return "<%= ENV['CIVIC_GOOGLE_API_KEY'] %>";
+    }
+  }
+});

@@ -17,3 +17,7 @@
  body {
    padding-top: 70px;
  }
+ table {
+     border-collapse: separate;
+     border-spacing: 1em;
+ }

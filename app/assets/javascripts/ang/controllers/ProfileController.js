@@ -1,8 +1,9 @@
-app.controller('ProfileController', function ProfileController($scope, $state,$q, Auth){
+app.controller('ProfileController', function ProfileController($state, $scope, $state,$q, Auth){
   var ctrl = this;
 
-  $scope.signedIn = Auth.isAuthenticated
-
+  if(!Auth.curent_user){
+    $state.go('home')
+  }
 //  if(!ctrl.user){
 //    $state.go('home')
   //}
