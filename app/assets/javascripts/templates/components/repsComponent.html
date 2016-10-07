@@ -3,8 +3,7 @@
     <thead class="thead-inverse">
       <tr>
         <th>Position</th>
-        <th>Name</th>
-        <th>Party</th>
+        <th>Name and Party</th>
       </tr>
     </thead>
     <tbody>
@@ -12,7 +11,7 @@
         <td>{{office.name}}</td>
         <!--  <table class="active table table-striped table-hover" >-->
             <td>
-              <table >
+              <table>
               <tr ng-repeat="num in office['officialIndices']">
                 <td>{{$ctrl.repsc['officials'][num].name}}</td>
                 <td>{{$ctrl.repsc['officials'][num].party}}</td>

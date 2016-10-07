@@ -1,20 +1,36 @@
 app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill, zipServ){
   var ctrl = this;
   ctrl.reps = {};
-  ctrl.bills = bills
+  //ctrl.bills = bills
   ctrl.zipCode;
-  ctrl.state = null;; ///currently like this for testing
+  ctrl.state = 'ny'; ///fill in with 'ny' for testing
+
   console.log(bills)
+
   ctrl.billLimit = 5;
   ctrl.billBeginning = 0;
   ctrl.stateData;
   ctrl.billsData = [];
+
 
   ctrl.expand = function() {
     ctrl.billLimit += 10;
     checkBills();
   }
 
+  var waitForBills =  ()=> new Promise((resolve, reject)=> { setTimeout(resolve, 1000)})
+
+  waitForBills().then(function(){
+
+    ctrl.bills = bills;
+    console.log('did the promise work')
+    return waitForBills();
+
+  }).then(function(){
+    console.log('holy shit it did')
+    checkBills();
+  })
+  //doesn't mattter which way honestly
   //$timeout(checkBills, 5000)
   Auth.currentUser()
     .then(function(user){
@@ -32,7 +48,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
   var checkBills = function(){
     //console.log('checkBills')
-    //console.log(ctrl.state)
+    //waitForBills();
     for(var i = ctrl.billBeginning;i < ctrl.billLimit; i++){
       ctrl.billsData.push(ctrl.bills.masterlist[i])
     }
@@ -42,10 +58,10 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   };
 
 //hacky ass way to get it since the promise is being annoying
-  $timeout(checkBills, 2000)
+  //$timeout(checkBills, 2000)
 
   var checkFormat = function(zipInput){
-    console.log('Am I a number?' + !isNaN(zipInput))
+    console.log(`checkFormat: I a number: ${!isNaN(zipInput)}`)
     if(!isNaN(zipInput)){
       //return changeToState(zipInput)
       ctrl.stateData = zipServ.get({zip: zipInput})
@@ -53,25 +69,23 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     //  ctrl.state = ctrl.stateData
       $timeout(changeToState, 500)
 
-      console.log(ctrl.state)
-      console.log('cahnge2state')
-      console.log(ctrl.state)
+      console.log(`checkFormat: I am a number came back true... checking ctrl.state after the changeToState timeout:${ctrl.state}`)
+    }else{
+      ctrl.state = zipInput
+      console.log('checkFormat: I am a number returned false')
     }
-    ctrl.state = zipInput
-    console.log('not a zipcode')
   }
 
   var changeToState = function(){
     ctrl.state = ctrl.stateData.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, '')
     ///ctrl.zipCode = response.results[0].address_components[4].short_name
-    console.log('cahnge2state after waiting')
-    console.log(ctrl.state.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, ''))
+    console.log(`changeToState:  checking the ctrl.state zipcode change to state: ${ctrl.state.results[0].formatted_address.split(',')[1].replace(/[0-9]/g, '').replace(/\s/g, '')}`)
   }
 
   var updateInfo = function(){
     ctrl.reps = Rep.get({state: ctrl.zipCode})
     ctrl.bills = bill.get({state: ctrl.state});
-    $timeout(console.log(ctrl.reps), 5000)
+    $timeout(console.log(`updateInfo: checking ctrl.reps after timeout: ${ctrl.reps}`), 5000)
     $timeout(checkBills, 2000)
   }
 
@@ -80,14 +94,14 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     ctrl.zipCode = null;
     ctrl.state = null;
     checkFormat(sa);
-    console.log('resetting')
-    console.log(sa)
+    console.log('resetBills and Reps: resetting bills and reps')
+    console.log(`resetBills and Reps: what value is being passed? ${sa}`)
 
 
     ctrl.billsData =[]
     ctrl.billBeginning = 0;
     ctrl.billLimit = 5;
-    console.log('check ' + sa + ctrl.state)
+    console.log(`resetBillsandReps: check ctrl.zip and ctrl.state: ${sa} & ${ctrl.state}`)
     ctrl.zipCode = sa;
     $timeout(updateInfo, 1000)
   }
