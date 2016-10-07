@@ -71,6 +71,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   var updateInfo = function(){
     ctrl.reps = Rep.get({state: ctrl.zipCode})
     ctrl.bills = bill.get({state: ctrl.state});
+    $timeout(console.log(ctrl.reps), 5000)
     $timeout(checkBills, 2000)
   }
 
@@ -90,7 +91,6 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     ctrl.zipCode = sa;
     $timeout(updateInfo, 1000)
   }
-
 
 
 });

@@ -1,5 +1,5 @@
 <div class="col-md-4" id="repsss">
-  <table ng-model="$ctrl.repsc" class="active table table-striped table-hover">
+  <table ng-model="$ctrl.repsc" class="active table table-hover">
     <thead class="thead-inverse">
       <tr>
         <th>Position</th>
@@ -10,8 +10,32 @@
     <tbody>
       <tr class="Reps" ng-repeat="office in $ctrl.repsc['offices']">
         <td>{{office.name}}</td>
-        <td>{{$ctrl.repsc['officials'][$index].name}}</td>
-        <td>{{$ctrl.repsc['officials'][$index].party}}</td>
+        <!--  <table class="active table table-striped table-hover" >-->
+            <td>
+              <table >
+              <tr ng-repeat="num in office['officialIndices']">
+                <td>{{$ctrl.repsc['officials'][num].name}}</td>
+                <td>{{$ctrl.repsc['officials'][num].party}}</td>
+              </tr >
+            </table>
+            </td>
+          <!--</table>-->
+
+            <!--$ctrl.repsc.officesII -> offices -> num in office[$index]['officialIndices']-->
+
+
+              <!--  <table class="active table table-striped table-hover" >-->
+            <!--  <td>
+                <table>
+                  <tr ng-repeat="num in office['officialIndices']">
+                    <td>{{$ctrl.repsc['officials'][num].name}}</td>
+                    <td>{{$ctrl.repsc['officials'][num].party}}</td>
+                  </tr>
+                </table>
+              </td>-->
+
+                <!--</table>-->
+
       </tr>
     </tbody>
   </table>
