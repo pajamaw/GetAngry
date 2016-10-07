@@ -39,10 +39,12 @@
 <div class="row" ng-show="ctrl.state">
   <reps-com  repsc="ctrl.reps"></reps-com>
   <bills-com billsc="ctrl.billsData"></bills-com>
+  <!--<a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+    use this when the design is half the screen and then it follows correctly-->
 </div>
 
 <div class="row" ng-show="ctrl.state">
-  <div class="col-md-2 col-md-offset-6">
-    <a class="btn btn-success" ng-click="ctrl.expand()">View Another 10 Bills</a>
+  <div class="col-md-8 col-md-offset-4">
+    <a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
   </div>
 </div>
