@@ -1,9 +1,6 @@
-//app.component('repsField', {
-//  templateUrl: 'reps.html',
-//  controller: HomeController,
-//  bindings: {
-//    fieldValue: '<',
-//    fieldType: '@?',
-//    onUpdate: '&'
-//  }
-//});
+app.component('repsCom', {
+  templateUrl: 'components/repsComponent.html',
+  bindings: {
+    repsc: '='
+    }
+});

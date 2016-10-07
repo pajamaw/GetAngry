@@ -1,89 +1,47 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<!--adding this manually until i find another way-->
 
- <div class="row">
+<div class="row">
   <div class="col-md-12">
-    <h2 class="text-center">Hello {{ctrl.user.username ? ctrl.user.username : 'there'}}, what neighborhood are you interested in?</h2>
-    <article>
-      <!---cool ternary expression i was playing with
-
-        <h3 ng-init="ctrl.user.username ? ctrl.user.username : what">Hello, {{what || ctrl.user.username}}
-
-          </h3>
-          ----->
-      <section class="text-center">
-        <form class="form-inline" ng-submit="ctrl.resetBillsAndReps(ctrl.state)">
-          <div class="form-group">
-
-            <!---<label for="name">Name</label>--->
-            <!--  type="text"
-              pattern="[0-9]{5}"
-              name="zipCode"
-              placeholder="Enter a ZIP Code"
-              autofocus-->
-            <input class="form-control"
-              placeholder="Enter your two character State Code"
-              ng-model="ctrl.state">
-              <button type="submit" class="btn btn-success btn-lg btn-block"
-            > Click to see where you end up! </button>
-          </div>
-        </form>
-      </section>
-    </article>
-    <br /><br />
+    <br>
+    <h3 class="text-center">{{ctrl.user.username ?  ctrl.user.username : 'Hello there'}}, what neighborhood are you interested in?</h2>
+      <article>
+        <section class="text-center">
+          <form class="form-inline" ng-submit="ctrl.resetBillsAndReps(ctrl.state)">
+            <div class="form-group">
+              <br>
+              <input class="form-control text-center"
+                placeholder="State or ZIP"
+                ng-model="ctrl.state">
+                <br/>
+                <br>
+              <button type="submit" class="btn btn-success btn-lg btn-block">
+                 Click to see where you end up!
+              </button>
+            </div>
+          </form>
+        </section>
+      </article>
+    <br /><br />`
   </div>
 </div>
+
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-
   </div>
 </div>
-<br>
-<br>
-<br>
 
-<div class="row">
-  <div class="col-md-4" id="reps">
-    <table ng-model="ctrl.reps" class="active table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Position</th>
-          <th>Name</th>
-          <th>Party</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="Reps" ng-repeat="office in ctrl.reps['offices']">
-          <td>{{office.name}}</td>
-          <td>{{ctrl.reps['officials'][$index].name}}</td>
-          <td>{{ctrl.reps['officials'][$index].party}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  <div class="col-md-8" id="bills">
-    <table  ng-model="ctrl.bills" class="active table-striped table-hover">
-      <thead>
-        <tr>
-          <th>Bill ID</th>
-          <th>Title</th>
-          <th>Date</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="Bills" ng-repeat="Bill in ctrl.billsData" > <!--ng-if ="$index < 5"-->
-          <td>{{Bill.number}}</td>
-          <td><a href="{{Bill.state_link}}">{{Bill.title}}</a></td>
-          <td>{{Bill.last_action_date}}</td>
+        <br>
+        <br>
+        <br>
 
-          <!--okay so i need to do another request to get the url of a state-->
-          <!--<td>{{Bill.history.date}}</td>--->
-<!--ng-repeat="Bill in ctrl.bills['masterlist'][0] | "-->
-        </tr>
-      </tbody>
-    </table>
-
-  </div>
+<div class="row" ng-show="ctrl.state">
+  <reps-com  repsc="ctrl.reps"></reps-com>
+  <bills-com billsc="ctrl.billsData"></bills-com>
 </div>
-<div class="row">
+
+<div class="row" ng-show="ctrl.state">
   <div class="col-md-2 col-md-offset-6">
     <a class="btn btn-success" ng-click="ctrl.expand()">View Another 10 Bills</a>
   </div>

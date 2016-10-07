@@ -1,0 +1,28 @@
+<div class="col-md-8" id="billss">
+  <table ng-model="$ctrl.billsc" class="active table table-striped table-hover">
+    <thead class="thead-inverse">
+      <tr>
+        <th>Bill ID</th>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="Bills" ng-repeat="Bill in $ctrl.billsc" > <!--ng-if ="$index < 5"-->
+        <td id='bill {{$index}}'>{{Bill.number}}   </td>
+        <td><a href="{{Bill.url}}">{{Bill.title}}</a></td>
+        <td>{{Bill.last_action_date}}</td>
+
+        <!--okay so i need to do another request to get the url of a state-->
+        <!--<td>{{Bill.history.date}}</td>--->
+<!--ng-repeat="Bill in ctrl.bills['masterlist'][0] | "-->
+      </tr>
+    </tbody>
+  </table>
+  <!--<a class="btn btn-success center-block"
+  ng-click="ctrl.expand()">View Another 10 Bills</a>-->
+  <!-- doesn't actually work would have to move all my
+  other functions to the component which i'm not going to
+  do-->
+
+</div>
