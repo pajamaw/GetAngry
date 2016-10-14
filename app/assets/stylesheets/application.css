@@ -17,7 +17,47 @@
  body {
    padding-top: 70px;
  }
- table {
+ /*table {
      border-collapse: separate;
      border-spacing: 1em;
+ }*/
+ table {
+     width: 100%;
  }
+ td{
+   background-color:white;
+ }
+ tbody {
+     display: inline;
+     height:155px
+ }
+
+ tr.rep-info {
+     width: 30%;
+     margin: 0px;
+     padding: 0;
+     float: left;
+     background-color: white;
+     border-radius: 25px;
+     border: 5px solid black;
+ }
+ td#img,
+ td.img {
+     float: left;
+     padding:0;
+     border-radius: 25px 0 0 25px;
+ }
+ img {
+   border-radius: 20px 0 0 20px;
+ }
+ td#info,
+ td.info {
+     color: black;
+     background-color: white;
+     margin-left: 10em;
+     display:block;
+     border-radius: 0 25px 25px;
+ }
+
+
+/*for reps componetn*/

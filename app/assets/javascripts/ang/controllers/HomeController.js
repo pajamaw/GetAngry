@@ -87,6 +87,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     ctrl.bills = bill.get({state: ctrl.state});
     $timeout(console.log(`updateInfo: checking ctrl.reps after timeout: ${ctrl.reps}`), 5000)
     $timeout(checkBills, 2000)
+    console.log(ctrl.reps)
   }
 
 

@@ -1,4 +1,4 @@
-<div class="col-md-8" id="billss">
+<div class="col-md-12" id="billss">
   <table ng-model="$ctrl.billsc" class="active table table-striped table-hover">
     <thead class="thead-inverse">
       <tr>
@@ -9,7 +9,7 @@
     </thead>
     <tbody>
       <tr class="Bills" ng-repeat="Bill in $ctrl.billsc" > <!--ng-if ="$index < 5"-->
-        <td id='bill {{$index}}'>{{Bill.number}}   </td>
+        <td id='bill{{$index}}'>{{Bill.number}}   </td>
         <td><a href="{{Bill.url}}">{{Bill.title}}</a></td>
         <td>{{Bill.last_action_date}}</td>
 

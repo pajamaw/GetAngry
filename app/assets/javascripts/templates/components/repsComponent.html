@@ -1,23 +1,27 @@
-<div class="col-md-4" id="repsss">
-  <table ng-model="$ctrl.repsc" class="active table table-hover">
-    <thead class="thead-inverse">
-      <tr>
+<div class="col-md-12" id="reps">
+  <table ng-model="$ctrl.repsc" class="table">
+    <thead class="">
+    <!--  <tr>
         <th>Position</th>
         <th>Name and Party</th>
-      </tr>
+        <th></th>photo
+      </tr>-->
     </thead>
-    <tbody>
-      <tr class="Reps" ng-repeat="office in $ctrl.repsc['offices']">
-        <td>{{office.name}}</td>
+  <!--  11<tbody>-->
+      <tbody class="Reps" ng-repeat="office in $ctrl.repsc['offices']" ng-animate>
+        <!--<td>{{office.name}}</td>-->
         <!--  <table class="active table table-striped table-hover" >-->
-            <td>
-              <table>
-              <tr ng-repeat="num in office['officialIndices']">
-                <td>{{$ctrl.repsc['officials'][num].name}}</td>
-                <td>{{$ctrl.repsc['officials'][num].party}}</td>
-              </tr >
-            </table>
-            </td>
+            <!--111<td class="dual-rep" id="{{office.name.split(' ').splice(-1, 1).join()}}">-->
+              <!--11<table class="inner-reps-table">-->
+                <tr id="rep-info" class="rep-info" ng-repeat="num in office['officialIndices']" >
+                    <td id="img"class="img"><img src="{{$ctrl.repsc['officials'][num].photoUrl || 'assets/no_picture.png'}}" height="160px" width="auto" />
+</td>
+                    <td id="info"class="info">{{office.name}}</td>
+                    <td id="info"class="info">{{$ctrl.repsc['officials'][num].name}}</td>
+                    <td id="info"class="info">{{$ctrl.repsc['officials'][num].party}}</td>
+                </tr>
+              <!---</table
+            </td>-->
           <!--</table>-->
 
             <!--$ctrl.repsc.officesII -> offices -> num in office[$index]['officialIndices']-->
@@ -35,7 +39,7 @@
 
                 <!--</table>-->
 
-      </tr>
+      <!---</tr>--->
     </tbody>
   </table>
 </div>
