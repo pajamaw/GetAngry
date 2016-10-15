@@ -21,6 +21,43 @@
      border-collapse: separate;
      border-spacing: 1em;
  }*/
+
+
+
+ /*for reps componetn
+ #repscom{
+   transition: all linear 0.5s;
+   height:400px;
+ }
+ .ng-hide{
+   height:0px;
+ }
+*/
+.bills-table{
+  height: 400px;
+  overflow:scroll;
+  display:block;
+}
+.default {
+  height:0px;
+  overflow: hidden;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+
+}
+
+.rollup{
+  height:600px;
+  overflow: hidden;
+  -moz-transition: 1s;
+  -ms-transition: 1s;
+  -o-transition: 1s;
+  -webkit-transition: 1s;
+  transition: 1s;
+}
  table {
      width: 100%;
  }
@@ -58,6 +95,3 @@
      display:block;
      border-radius: 0 25px 25px;
  }
-
-
-/*for reps componetn*/

@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router', 'ngResource', 'Devise', 'templates']);
+var app = angular.module('app', ['ui.router', 'ngResource', 'Devise', 'templates', 'ngAnimate']);
 
 app.config(function($stateProvider, $urlRouterProvider){
   $stateProvider
