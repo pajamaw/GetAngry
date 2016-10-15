@@ -38,12 +38,39 @@
   overflow:scroll;
   display:block;
 }
+/*
+.fade {
+  transition: 1s linear all;
+  -webkit-transition: 1s linear all;
+}
+
+.fade.ng-enter {
+  opacity: 0;
+}
+
+.fade.ng-enter.ng-enter-active {
+  opacity: 1;
+}
+
+.fade.ng-leave {
+  opacity: 1;
+}
+
+.fade.ng-leave.ng-leave-active {
+  opacity: 0;
+}*/
+
+div.navbar-header a{
+    padding:15px;
+}
+
+
 .default {
+
   height:0px;
   overflow: hidden;
   -moz-transition: 1s;
   -ms-transition: 1s;
-  -o-transition: 1s;
   -webkit-transition: 1s;
   transition: 1s;
 
@@ -53,9 +80,33 @@
   overflow: hidden;
   -moz-transition: 1s;
   -ms-transition: 1s;
-  -o-transition: 1s;
   -webkit-transition: 1s;
   transition: 1s;
+}
+.tabs {
+  margin: 25px;
+  background: #fff;
+}
+.tabs__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  text-align:center;
+}
+.tabs__list li {
+  display:inline-block;
+}
+.tabs__list li a {
+  color: #444;
+  text-align: center;
+  display:inline;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+.tabs__content {
+  padding: 10px;
 }
  table {
      width: 100%;
@@ -69,14 +120,38 @@
  }
 
  tr.rep-info {
+     /*transition: background-color 0s linear 0s;
+     &[class*="-add"]{
+       background-color: blck;
+     }*/
      width: 30%;
-     margin: 0px;
+     margin: 16px;
      padding: 0;
      float: left;
      background-color: white;
      border-radius: 25px;
      border: 5px solid black;
  }
+ tr.rep-info.ng-enter, tr.rep-info.ng-move{
+   transition: all 0.5s linear;
+   opacity:0;
+ }
+tr.rep-info.ng-enter.ng-enter-active,
+tr.rep-info.ng-move.ng-move-active {
+  opacity: 1;
+}
+
+tr.rep-info.ng-leave{
+  animation: 0.5s my_animation;
+}
+@keyframes my_animation{
+  from {opacity: 1;}
+  to {opacity: 0;}
+}
+/*if i remove the width this the layout becomes much more responsive
+because the rest of it disapears
+*/
+
  td#img,
  td.img {
      float: left;

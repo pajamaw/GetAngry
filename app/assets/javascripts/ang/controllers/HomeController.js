@@ -3,7 +3,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   ctrl.reps = {};
   //ctrl.bills = bills
   ctrl.zipCode;
-  ctrl.state = ''; ///fill in with 'ny' for testing
+  ctrl.state; ///fill in with 'ny' for testing
 
   console.log(bills)
 
@@ -71,7 +71,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
       console.log(`checkFormat: I am a number came back true... checking ctrl.state after the changeToState timeout:${ctrl.state}`)
     }else{
-      ctrl.state = zipInput
+      ctrl.stateData = zipInput;
       console.log('checkFormat: I am a number returned false')
     }
   }
@@ -79,7 +79,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   var changeToState = function(){
     ctrl.state = ctrl.stateData.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, '')
     ///ctrl.zipCode = response.results[0].address_components[4].short_name
-    console.log(`changeToState:  checking the ctrl.state zipcode change to state: ${ctrl.state.results[0].formatted_address.split(',')[1].replace(/[0-9]/g, '').replace(/\s/g, '')}`)
+    console.log(`changeToState:  checking the ctrl.state zipcode change to state: ${ctrl.stateData.results[0].formatted_address.split(',')[1].replace(/[0-9]/g, '').replace(/\s/g, '')}`)
   }
 
   var updateInfo = function(){
@@ -93,7 +93,8 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
   ctrl.resetBillsAndReps = function(sa){
     ctrl.zipCode = null;
-    ctrl.state = null;
+    ctrl.stateData = null;
+    //when this goes to null for a moment that's wher the flicker occurs
     checkFormat(sa);
     console.log('resetBills and Reps: resetting bills and reps')
     console.log(`resetBills and Reps: what value is being passed? ${sa}`)

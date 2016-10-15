@@ -13,39 +13,32 @@
               <br>
               <input class="form-control text-center"
                 placeholder="State or ZIP"
-                ng-model="ctrl.state">
+                ng-model="ctrl.state" required>
                 <br/>
                 <br>
               <button type="submit" class="btn btn-success btn-lg btn-block">
-                 Click to see where you end up!
-              </button>
+                 Search Area              </button>
             </div>
           </form>
         </section>
       </article>
-    <br /><br />`
   </div>
 </div>
-
+<br>
 <div class="row">
-  <div class="col-md-4 col-md-offset-4">
-  </div>
-</div>
-
-        <br>
-        <br>
-        <br>
-
-<div class="row " ng-class="{'default':!ctrl.state, 'rollup':ctrl.state}" id="repscom" ng-show="ctrl.state" >
-  <reps-com repsc="ctrl.reps"></reps-com>
-</div>
-<div class="row" ng-show="ctrl.state">
-  <bills-com billsc="ctrl.billsData"></bills-com>
-  <!--<a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
-    use this when the design is half the screen and then it follows correctly-->
-</div>
-<div class="row" ng-show="ctrl.state">
-  <div class="col-md-8 col-md-offset-4">
-    <a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+  <div class="col-md-12">
+    <tabs>
+      <tab label="reps">
+        <reps-com ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}" id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>
+      </tab>
+      <tab label="bills">
+          <bills-com billsc="ctrl.billsData">Loading Local Bills...</bills-com>
+          <!--<a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+            use this when the design is half the screen and then it follows correctly-->
+        <div class="col-md-4 col-md-offset-4">
+          <a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+        </div>
+      </tab>
+    </tabs>
   </div>
 </div>

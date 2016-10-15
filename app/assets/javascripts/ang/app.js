@@ -6,9 +6,9 @@ app.config(function($stateProvider, $urlRouterProvider){
       url: '/',
       templateUrl: 'home/index.html',
       resolve: {
-        bill: 'bill',
-        bills: function(bill){
-           return bill.get();
+       bill: 'bill',
+       bills: function(bill){
+          return bill.get();
         }
       },
       controller: 'HomeController as ctrl'

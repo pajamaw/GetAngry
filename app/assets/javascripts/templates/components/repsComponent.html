@@ -8,7 +8,7 @@
       </tr>-->
     </thead>
   <!--  11<tbody>-->
-      <tbody class="Reps" ng-repeat="office in $ctrl.repsc['offices']" >
+      <tbody class="Reps " ng-repeat="office in $ctrl.repsc['offices']">
         <!--<td>{{office.name}}</td>-->
         <!--  <table class="active table table-striped table-hover" >-->
             <!--111<td class="dual-rep" id="{{office.name.split(' ').splice(-1, 1).join()}}">-->
@@ -19,6 +19,7 @@
                     <td id="info"class="info">{{office.name}}</td>
                     <td id="info"class="info">{{$ctrl.repsc['officials'][num].name}}</td>
                     <td id="info"class="info">{{$ctrl.repsc['officials'][num].party}}</td>
+                  <!--  add social links<td id="info" class="info">{{$ctrl.repsc['officials'][num].party}}</td>---->
                 </tr>
               <!---</table
             </td>-->
