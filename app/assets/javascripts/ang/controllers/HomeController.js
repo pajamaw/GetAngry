@@ -7,7 +7,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
   console.log(bills)
 
-  ctrl.billLimit = 5;
+  ctrl.billLimit = 15;
   ctrl.billBeginning = 0;
   ctrl.stateData;
   ctrl.billsData = [];
@@ -49,7 +49,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   var checkBills = function(){
     //console.log('checkBills')
     //waitForBills();
-    for(var i = ctrl.billBeginning;i < ctrl.billLimit; i++){
+    for(var i = ctrl.billBeginning; i < ctrl.billLimit; i++){
       ctrl.billsData.push(ctrl.bills.masterlist[i])
     }
     console.log(ctrl.billBeginning + 'number')
@@ -102,7 +102,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
     ctrl.billsData =[]
     ctrl.billBeginning = 0;
-    ctrl.billLimit = 5;
+    ctrl.billLimit = 15;
     console.log(`resetBillsandReps: check ctrl.zip and ctrl.state: ${sa} & ${ctrl.state}`)
     ctrl.zipCode = sa;
     $timeout(updateInfo, 1000)

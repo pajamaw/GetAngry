@@ -1,15 +1,17 @@
 <div class="col-md-12" id="billss">
-  <table ng-model="$ctrl.billsc" class="bills-table active table table-striped table-hover">
-    <thead class="thead-inverse">
-      <tr>
+  <table ng-model="$ctrl.billsc" class="bills-table table">
+    <input class="center-block text-center" type="text" placeholder="Search Bills"  ng-model="searchText">
+    <br>
+    <thead class="">
+  <!--    <tr>
         <th>Bill ID</th>
         <th>Title</th>
         <th>Date</th>
-      </tr>
+      </tr>-->
     </thead>
     <tbody>
-      <tr class="Bills" ng-repeat="Bill in $ctrl.billsc" > <!--ng-if ="$index < 5"-->
-        <td id='bill{{$index}}'>{{Bill.number}}   </td>
+      <tr class="Bills" ng-repeat="Bill in $ctrl.billsc | filter:searchText"> <!--ng-if ="$index < 5"-->
+        <td id='bill{{$index}}'>{{Bill.number}}</td>
         <td><a href="{{Bill.url}}">{{Bill.title}}</a></td>
         <td>{{Bill.last_action_date}}</td>
 

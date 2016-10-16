@@ -35,7 +35,7 @@
 */
 .bills-table{
   height: 400px;
-  overflow:scroll;
+  overflow:auto;
   display:block;
 }
 /*
@@ -109,7 +109,7 @@ div.navbar-header a{
   padding: 10px;
 }
  table {
-     width: 100%;
+   width: 100%;
  }
  td{
    background-color:white;
@@ -118,7 +118,29 @@ div.navbar-header a{
      display: inline;
      height:155px
  }
+/*bills table specific ccss*/
+tr.Bills {
+    width: 100%;
+    display: block;
+    float: left;
+}
 
+thead.thead-default th {
+    width: 33%;
+    position: absolute;
+
+}
+
+tr.Bills td{
+    float:left;
+    width:33%;
+}
+
+
+
+
+
+/*rep table specific css*/
  tr.rep-info {
      /*transition: background-color 0s linear 0s;
      &[class*="-add"]{
