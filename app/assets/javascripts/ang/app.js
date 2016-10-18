@@ -14,6 +14,16 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'HomeController as ctrl'
 
     })
+    .state('home.bill', {
+      url: '/bill/:billid',
+      template:  `<specific-bill bill="$resolve.billData">Loading...</specific-bill>`,
+      resolve:{
+        specificBillService: 'specificBillService',
+        billData: function(specificBillService, $stateParams){
+          return specificBillService.get({bill_id: $stateParams.billid})
+        }
+      }
+    })
     .state('login',{
       url: '/login',
       templateUrl: 'auth/_login.html',
