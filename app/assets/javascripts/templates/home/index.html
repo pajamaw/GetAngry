@@ -25,11 +25,13 @@
   </div>
 </div>
 <br>
-<div class="row">
+<div class="row rollup">
   <div class="col-md-12">
     <tabs>
       <tab label="reps">
-        <reps-com ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}" id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>
+      <!--  <reps-com ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}" id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>-->
+
+        <reps-com id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>
       </tab>
       <tab label="bills">
         <ui-view>
