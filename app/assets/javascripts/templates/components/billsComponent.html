@@ -13,7 +13,7 @@
         <tr class="Bills" ng-repeat="Bill in $ctrl.billsc | filter:searchText"> <!--ng-if ="$index < 5"-->
           <td id='bill{{$index}}'>{{Bill.number}}</td>
           <td><a ui-sref="home.bill({billid: Bill.bill_id})">{{ Bill.title}}</a></td>
-          <td>{{Bill.last_action_date}}</td>
+          <td id="billDate">{{Bill.last_action_date}}</td>
 
 
           <!--going to keep this down here for now, going to try nested components

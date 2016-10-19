@@ -1,0 +1,7 @@
+app.factory('SpecificRepEnv', function () {
+return {
+    getMySecretEnv: function () {
+        return "<%= ENV['FTM_API_KEY'] %>";
+    }
+  }
+});

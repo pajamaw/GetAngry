@@ -5,5 +5,6 @@ app.component('specificBill', {
   },
   controller: function(){
     console.log(this.bill)
+    
   }
 });

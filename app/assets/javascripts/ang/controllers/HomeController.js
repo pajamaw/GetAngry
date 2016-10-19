@@ -1,4 +1,4 @@
-app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill, zipServ){
+app.controller('HomeController', function HomeController($timeout, $scope, $q, Auth, Rep, bills, bill, zipServ, $rootScope){
   var ctrl = this;
   ctrl.reps = {};
   //ctrl.bills = bills
@@ -11,7 +11,8 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   ctrl.billBeginning = 0;
   ctrl.stateData;
   ctrl.billsData = [];
-
+  ctrl.specificRep;
+  ctrl.specificOffice;
 
   ctrl.expand = function() {
     ctrl.billLimit += 10;
@@ -90,7 +91,6 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     console.log(ctrl.reps)
   }
 
-
   ctrl.resetBillsAndReps = function(sa){
     ctrl.zipCode = null;
     ctrl.stateData = null;
@@ -108,5 +108,19 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     $timeout(updateInfo, 1000)
   }
 
+    $rootScope.$on('getSpecificRepData', function(event, data){
+      console.log('getSpecificRepData has Fired from specificRep Component')
+      console.log(data)
+      console.log(this.rep)
+      ctrl.specificRep = data
+
+    })
+    $rootScope.$on('getSpecificOfficeData', function(event, data){
+      console.log('getSpecificRepData has Fired from specificRep Component')
+      console.log(data)
+      console.log(this.office)
+      ctrl.specificOffice = data
+
+    })
 
 });
