@@ -7,50 +7,50 @@ GIT
 
 GIT
   remote: https://github.com/rspec/rspec-core.git
-  revision: 5875d9f440378f78e0c4b0c20b326730ab2ce924
+  revision: 8c5717b05c820fdc91faf277164b36a2a31b6c08
   branch: master
   specs:
-    rspec-core (3.6.0.pre)
-      rspec-support (= 3.6.0.pre)
+    rspec-core (3.6.0.beta1)
+      rspec-support (= 3.6.0.beta1)
 
 GIT
   remote: https://github.com/rspec/rspec-expectations.git
-  revision: 8343affb9b290d494a0793e894a83f77e28eff5c
+  revision: f07af78f18abe02f2478db8a47cd341146b0ba02
   branch: master
   specs:
-    rspec-expectations (3.6.0.pre)
+    rspec-expectations (3.6.0.beta1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.6.0.pre)
+      rspec-support (= 3.6.0.beta1)
 
 GIT
   remote: https://github.com/rspec/rspec-mocks.git
-  revision: 0c87b91d32f4f827d2c1953935adcfd5468263a5
+  revision: c0bf45b5ceb179c51b0d38d7c91faf60a7a6048f
   branch: master
   specs:
-    rspec-mocks (3.6.0.pre)
+    rspec-mocks (3.6.0.beta1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (= 3.6.0.pre)
+      rspec-support (= 3.6.0.beta1)
 
 GIT
   remote: https://github.com/rspec/rspec-rails.git
-  revision: 2175c72f42ebd40c946ccc45fe3a2ad0caa8df6f
+  revision: 063f035cb9559e227646fe244bf8b8b2961a8c32
   branch: master
   specs:
-    rspec-rails (3.6.0.pre)
+    rspec-rails (3.6.0.beta1)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (= 3.6.0.pre)
-      rspec-expectations (= 3.6.0.pre)
-      rspec-mocks (= 3.6.0.pre)
-      rspec-support (= 3.6.0.pre)
+      rspec-core (= 3.6.0.beta1)
+      rspec-expectations (= 3.6.0.beta1)
+      rspec-mocks (= 3.6.0.beta1)
+      rspec-support (= 3.6.0.beta1)
 
 GIT
   remote: https://github.com/rspec/rspec-support.git
-  revision: 357ca45a15819b1b452e50f57f5df197710f7182
+  revision: 5cc75bd37b1bcfb1b9c6c4835d1f1b74fb695fe3
   branch: master
   specs:
-    rspec-support (3.6.0.pre)
+    rspec-support (3.6.0.beta1)
 
 GEM
   remote: https://rubygems.org/
@@ -79,10 +79,11 @@ GEM
       erubis (~> 2.7.0)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    active_model_serializers (0.10.0)
-      actionpack (>= 4.0)
-      activemodel (>= 4.0)
-      railties (>= 4.0)
+    active_model_serializers (0.10.2)
+      actionpack (>= 4.1, < 6)
+      activemodel (>= 4.1, < 6)
+      jsonapi (~> 0.1.1.beta2)
+      railties (>= 4.1, < 6)
     activejob (5.0.0.1)
       activesupport (= 5.0.0.1)
       globalid (>= 0.3.6)
@@ -98,20 +99,20 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     addressable (2.4.0)
-    angular-rails-templates (1.0.0)
+    angular-rails-templates (1.0.2)
       railties (>= 4.2, < 6)
-      sprockets (~> 3.0)
+      sprockets (>= 3.0, < 5)
       tilt
-    arel (7.1.2)
-    autoprefixer-rails (6.4.1.1)
+    arel (7.1.4)
+    autoprefixer-rails (6.5.1)
       execjs
     bcrypt (3.1.11)
-    bootstrap-sass (3.3.6)
+    bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
     builder (3.2.2)
-    byebug (9.0.5)
-    capybara (2.8.1)
+    byebug (9.0.6)
+    capybara (2.10.1)
       addressable
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -130,7 +131,7 @@ GEM
     concurrent-ruby (1.0.2)
     database_cleaner (1.5.3)
     debug_inspector (0.0.2)
-    devise (4.1.1)
+    devise (4.2.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0, < 5.1)
@@ -154,6 +155,11 @@ GEM
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
+    jsonapi (0.1.1.beta5)
+      jsonapi-parser (= 0.1.1.beta2)
+      jsonapi-renderer (= 0.1.1.beta1)
+    jsonapi-parser (0.1.1.beta2)
+    jsonapi-renderer (0.1.1.beta1)
     listen (3.0.8)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -169,12 +175,10 @@ GEM
     minitest (5.9.1)
     multi_json (1.12.1)
     nio4r (1.2.1)
-    nokogiri (1.6.8)
+    nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     orm_adapter (0.5.0)
-    pg (0.18.4)
-    pkg-config (1.1.7)
+    pg (0.19.0)
     puma (3.6.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -202,6 +206,11 @@ GEM
       nokogiri (~> 1.6.0)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (5.0.0.1)
       actionpack (= 5.0.0.1)
       activesupport (= 5.0.0.1)
@@ -212,7 +221,7 @@ GEM
     rb-fsevent (0.9.7)
     rb-inotify (0.9.7)
       ffi (>= 0.5.0)
-    responders (2.2.0)
+    responders (2.3.0)
       railties (>= 4.2.0, < 5.1)
     rubyzip (1.2.0)
     sass (3.4.22)
@@ -222,14 +231,15 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    selenium-webdriver (2.53.0)
+    selenium-webdriver (3.0.0)
       childprocess (~> 0.5)
       rubyzip (~> 1.0)
       websocket (~> 1.0)
-    spring (1.7.2)
-    spring-watcher-listen (2.0.0)
+    spring (2.0.0)
+      activesupport (>= 4.2)
+    spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
-      spring (~> 1.2)
+      spring (>= 1.2, < 3.0)
     sprockets (3.7.0)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -237,7 +247,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.3.11)
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.5)
@@ -285,6 +294,7 @@ DEPENDENCIES
   rails-assets-angular!
   rails-assets-angular-devise!
   rails-assets-bootstrap-sass-official!
+  rails_12factor
   rspec-core!
   rspec-expectations!
   rspec-mocks!
@@ -294,11 +304,10 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
 
 BUNDLED WITH
-   1.12.5
+   1.13.3
