@@ -1,19 +1,36 @@
-<<!--adding this manually until i find another way-->
+<!--adding this manually until i find another way-->
 
 <div class="row">
   <div class="col-md-12">
     <br>
       <article>
-        <section class="text-center">
-          <a ui-sref="home">Back to previous reps</a>
-          <p><a target="_blank" href="{{$ctrl.rep}}">{{$ctrl.rep.name}}</a></p>
-          <p>{{$ctrl.rep}}
-          <p>{{$ctrl.office}}
-          <p>{{$ctrl.office}}
-          <p>{{$ctrl.rep.state}}
+        <section>
 
-          <p><a target="_blank" href="{{$ctrl.rep}}">Link to Full Text</a></p>
-
+          <div id="rep-img">
+            <img src="{{$ctrl.rep.photoUrl || 'assets/no_picture.png'}}" />
+          </div>
+          <div class="rep-details">
+            <h3>{{$ctrl.rep.name}}</h3>
+            <h5>{{$ctrl.office.name}}</h5>
+            <h5>{{$ctrl.rep.party}}</h5>
+            <p>{{$ctrl.office.divisionId.slice(-2, $ctrl.office.divisionId.length).toUpperCase()}}</p>
+            <table>
+              <tbody>
+                <tr class="phone">
+                  <td>Phone: {{$ctrl.rep.phones[0]}}</td>
+                </tr>
+                <tr class="social-rep" ng-repeat="social in $ctrl.rep.channels">
+                  <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}">{{social.type}}</a></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!--  <p><a target="_blank" href="{{$ctrl.rep}}">Link to Full Text</a></p>-->
+<!--{"name":"Joseph R. Biden","address":[{"line1":"The White House","line2":"1600 pennsylvania avenue nw"
+,"city":"washington","state":"DC","zip":"20500"}],"party":"Democratic","phones":["(202) 456-1111"],"urls":
+["http://www.whitehouse.gov/"],"photoUrl":
+"http://www.whitehouse.gov/sites/default/files/imagecache/admin_official_lowres/administration-official/ao_image/vp_portrait.jpeg",
+"channels":[{"type":"GooglePlus","id":"+whitehouse"},{"type":"Facebook","id":"whitehouse"},{"type":"Twitter","id":"whitehouse"}]}-->
           <h3>Sponsors</h3>
 
       <!--    < ng-repeat="sponsor in $ctrl.rep.rep.sponsors">

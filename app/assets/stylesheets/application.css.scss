@@ -129,6 +129,7 @@ div.navbar-header a{
 .tabs__content {
   padding: 10px;
 }
+
  table {
    width: 100%;
    height:100%;
@@ -216,4 +217,17 @@ because the rest of it disapears
      margin-left: 10em;
      display:block;
      border-radius: 0 25px 25px;
+ }
+
+ #rep-img img{
+   float:left;
+   max-height:460px;
+ }
+ div.rep-details{
+   float:left;
+   padding-left: 20px;
+ }
+ div.rep-details table tr{
+   display:inline;
+   padding-left: 10px;
  }

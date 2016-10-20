@@ -20,7 +20,8 @@ app.component('tabs', {
         <li ng-repeat="tab in $ctrl.tabs">
           <a href=""
           ng-bind="tab.label"
-          ng-click="$ctrl.selectTab($index);"></a>
+          ng-click="$ctrl.selectTab($index)"
+          ui-sref="home"></a>
         </li>
       </ul>
       <div class="tabs__content" ng-transclude></div>
