@@ -37,6 +37,12 @@
      background-color:white;
      overflow:hidden;
  }
+ div#search-bar{
+   background: asset-data-url('gray-geometric-background.jpg') no-repeat #181a1f;
+   color:#181a1f;
+   padding-bottom:10px;
+ }
+
  /*table {
      border-collapse: separate;
      border-spacing: 1em;
@@ -83,7 +89,10 @@
 div.navbar-header a{
     padding:15px;
 }
-
+nav.navbar.navbar-default.navbar-fixed-top{
+  background-color: #21252b;
+  border: 1px solid#181a1f;
+}
 
 
 .default {
@@ -210,6 +219,7 @@ because the rest of it disapears
  img {
    border-radius: 20px 0 0 20px;
  }
+
  td#info,
  td.info {
      color: black;
@@ -217,17 +227,4 @@ because the rest of it disapears
      margin-left: 10em;
      display:block;
      border-radius: 0 25px 25px;
- }
-
- #rep-img img{
-   float:left;
-   max-height:460px;
- }
- div.rep-details{
-   float:left;
-   padding-left: 20px;
- }
- div.rep-details table tr{
-   display:inline;
-   padding-left: 10px;
  }

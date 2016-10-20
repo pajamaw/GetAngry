@@ -3,7 +3,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   ctrl.reps = {};
   //ctrl.bills = bills
   ctrl.zipCode;
-  ctrl.state; ///fill in with 'ny' for testing
+  ctrl.state='co'; ///fill in with a state for testing
 
   console.log(bills)
 

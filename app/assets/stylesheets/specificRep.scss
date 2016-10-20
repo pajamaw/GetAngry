@@ -1,0 +1,31 @@
+#specific-rep-img img{
+  float:left;
+  max-height:460px;
+  border-right: 2px solid grey;
+}
+
+div.specific-rep-details{
+  padding-left: 20px;
+}
+div.specific-rep-details table tr{
+  padding-left: 10px;
+}
+div.details{
+  float:left;
+  padding-left: 20px;
+}
+div.details table tr{
+  display:inline;
+  padding-left: 10px;
+}
+
+div.col-md-12.specific-rep{
+    border-radius: 25px;
+    border: 5px solid black;
+}
+
+section.specific-rep-details{
+    margin-top: -25px;
+    margin-left: -15px;
+    margin-bottom: -1px;
+}
