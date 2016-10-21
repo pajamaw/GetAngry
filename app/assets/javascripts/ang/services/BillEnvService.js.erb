@@ -3,8 +3,7 @@ return {
     getMySecretEnv: function () {
         if("<%= ENV['LEGISCAN_API_KEY'] %>" !== 'null'){
           return "<%= ENV['LEGISCAN_API_KEY'] %>";
-          ////          return "<%= ENV['LEGISCAN_API_KEY'].html_safe %>";
-
+          //  ###  <%= ENV['LEGISCAN_API_KEY'].html_safe %>
       }
       console.log('legiscan api not passing')
     }
