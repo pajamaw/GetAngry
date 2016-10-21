@@ -1,35 +1,38 @@
 <!--adding this manually until i find another way-->
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-12 specific-bill">
     <br>
       <article>
-        <section class="text-center">
+        <section class="specific-bill-details">
 
-          <p><a target="_blank" href="{{$ctrl.bill.bill.state_link}}">{{$ctrl.bill.bill.title}}</a></p>
-          <p>{{$ctrl.bill.bill.session.session_name}}
-          <p>{{$ctrl.bill.bill.session_title}}
-          <p>{{$ctrl.bill.bill.description}}
-          <p>{{$ctrl.bill.bill.state}}
+          <div class="details">
 
-          <p><a target="_blank" href="{{$ctrl.bill.bill.texts[0].state_link}}">Link to Full Text</a></p>
+            <h3><a target="_blank" href="{{$ctrl.bill.bill.state_link}}">{{$ctrl.bill.bill.title}}</a></h3>
+            <p>{{$ctrl.bill.bill.state}} {{$ctrl.bill.bill.session.session_name}}</p>
+            <p>{{$ctrl.bill.bill.session_title}}</p>
+            <p>{{$ctrl.bill.bill.description}}</p>
+            <p><a target="_blank" href="{{$ctrl.bill.bill.texts[0].state_link}}">Link to Full Text</a></p>
 
-          <h3>Sponsors</h3>
-
-          <div ng-repeat="sponsor in $ctrl.bill.bill.sponsors">
-            <p>{{sponsor.name}}</p>
-            <p>{{sponsor.party ==="R" ? "Republican" :"Democrat"}}
-            <p>{{sponsor.ftm_eid}}
           </div>
 
-          <h3> Upcoming events</h3>
-          <div class="calendar"ng-repeat="dates in $ctrl.bill.bill.calendar">
-            <h3>Events</h3>
-            <p>{{dates.date}}
-            <p>{{dates.description}}
-            <p>{{dates.location}}
-            <p>{{dates.time}}
-            <p>{{dates.type}}
+          <div class="specific-bill-sponsors">
+            <h3>Sponsors</h3>
+            <div ng-repeat="sponsor in $ctrl.bill.bill.sponsors">
+              <p>{{sponsor.name}}</p>
+              <p>{{sponsor.party ==="R" ? "Republican" :"Democrat"}}</p>
+              <p>{{sponsor.ftm_eid}}</p>
+            </div>
+          </div>
+
+          <div class="specific-bill-events">
+          <h3>Events</h3>
+            <div class="calendar"ng-repeat="dates in $ctrl.bill.bill.calendar">
+              <p>{{dates.description}}</p>
+              <p>{{dates.type}}</p>
+              <p>{{dates.location}}</p>
+              <p>{{dates.time}}</p>
+            </div>
           </div>
 
         </section>
