@@ -25,6 +25,5 @@ app.component('tabs', {
         </li>
       </ul>
       <div class="tabs__content" ng-transclude></div>
-    </div>
-    `
+    </div>`
 });

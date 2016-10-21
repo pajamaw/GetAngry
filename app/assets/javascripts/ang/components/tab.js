@@ -9,8 +9,7 @@ app.component('tab', {
   template: `
     <div class="tabs__content" ng-if="$ctrl.tab.selected">
       <div ng-transclude></div>
-    </div>
-  `,
+    </div>`,
   controller: function () {
     this.$onInit = function () {
       this.tab = {
