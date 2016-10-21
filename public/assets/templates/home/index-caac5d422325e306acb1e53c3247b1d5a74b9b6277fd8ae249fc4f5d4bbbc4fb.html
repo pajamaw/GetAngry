@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/css/bootstrap.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha/js/bootstrap.min.js"></script>
+<!--adding this manually until i find another way-->
+
+<div class="row" id="search-bar">
+  <div  class="col-md-12">
+    <br>
+    <h3 class="text-center">{{ctrl.user.username ?  ctrl.user.username : 'Hello there'}}, what neighborhood are you interested in?</h2>
+      <article>
+        <section class="text-center">
+          <form class="form-inline" ng-submit="ctrl.resetBillsAndReps(ctrl.state)">
+            <div class="form-group">
+              <br>
+              <input class="form-control text-center"
+                placeholder="State or ZIP"
+                ng-model="ctrl.state" required>
+                <br/>
+                <br>
+              <button type="submit" class="btn btn-success btn-lg btn-block">
+                 Search Area              </button>
+            </div>
+          </form>
+        </section>
+      </article>
+  </div>
+</div>
+<br>
+  <div class="row rollup">
+    <tabs>
+      <tab label="reps">
+        <ui-view>
+
+          <!--  <reps-com ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}" id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>-->
+          <reps-com id="repscom" repsc="ctrl.reps">Loading Local Reps...</reps-com>
+
+        </ui-view>
+      </tab>
+      <tab label="bills">
+        <ui-view>
+
+          <bills-com ng-show="ctrl.stateData"billsc="ctrl.billsData">Loading Local Bills...</bills-com>
+          <!--<a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+            use this when the design is half the screen and then it follows correctly-->
+          <div class="col-md-4 col-md-offset-4">
+            <a class="btn btn-success center-block" ng-click="ctrl.expand()">View Another 10 Bills</a>
+          </div>
+
+        </ui-view>
+      </tab>
+    </tabs>
+</div>

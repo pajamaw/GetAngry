@@ -21,24 +21,3 @@
 //= require angular-animate
 //= require_tree ./templates
 //= require_tree
-
-////using simple jquery for now, will change to
-///angular component later
-$(document).on('click', 'nav', function(){
-  console.log($(location.hash.replace('/','')==="profile" ))
-  console.log( '/profile' === location.href.replace(`${location.origin+'/#'}`, '') )
-  if('/profile' === location.href.replace(`${location.origin+'/#'}`, '')){
-    $('a#profile-search').replaceWith('<a id="profile-search" ui-sref="home" href="/#">Search</a> ')
-  }
-  else{
-    $('a#profile-search').replaceWith('<a id="profile-search" ui-sref="profile" href="/#profile">Profile</a> ')
-  }
-})
-
-$(document).on('click','.navbar-collapse.in',function(e) {
-  console.log($(document.location))
-
-    if( $(e.target).is('a') ) {
-        $(this).collapse('hide');
-    }
-});

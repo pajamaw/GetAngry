@@ -1,0 +1,34 @@
+  <div class="col-md-12" id="billss">
+    <table ng-model="$ctrl.billsc" class="bills-table table">
+      <input class="center-block text-center" type="text" placeholder="Search Bills"  ng-model="searchText">
+      <br>
+      <thead class="">
+    <!--    <tr>
+          <th>Bill ID</th>
+          <th>Title</th>
+          <th>Date</th>
+        </tr>-->
+      </thead>
+      <tbody>
+        <tr class="Bills" ng-repeat="Bill in $ctrl.billsc | filter:searchText"> <!--ng-if ="$index < 5"-->
+          <td id='bill{{$index}}'>{{Bill.number}}</td>
+          <td><a ui-sref="home.bill({billid: Bill.bill_id})">{{ Bill.title}}</a></td>
+          <td id="billDate">{{Bill.last_action_date}}</td>
+
+
+          <!--going to keep this down here for now, going to try nested components
+          <td><a href="{{Bill.url}}">{{Bill.title}}</a></td>
+        -->
+
+
+          <!--okay so i need to do another request to get the url of a state-->
+          <!--<td>{{Bill.history.date}}</td>--->
+  <!--ng-repeat="Bill in ctrl.bills['masterlist'][0] | "-->
+        </tr>
+      </tbody>
+    </table>
+  <!--<a class="btn btn-success center-block"
+  ng-click="ctrl.expand()">View Another 10 Bills</a>-->
+  <!-- doesn't actually work would have to move all my
+  other functions to the component which i'm not going to
+  do-->
