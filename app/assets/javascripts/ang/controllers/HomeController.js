@@ -3,10 +3,12 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   ctrl.reps = {};
   //ctrl.bills = bills
   ctrl.zipCode;
-  ctrl.state='co'; ///fill in with a state for testing
+  ctrl.state; ///fill in with a state for quick testing
 
   console.log(bills)
-
+  ///search bar can be refactored into a new component,
+  ////which then we could move a lot of these functions into their compoonents
+  ///until then though they're fine here, just a bit messy
 
   ctrl.billLimit = 15;
   ctrl.billBeginning = 0;

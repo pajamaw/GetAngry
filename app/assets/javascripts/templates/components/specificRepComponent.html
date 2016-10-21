@@ -24,7 +24,7 @@
 
               <tr class="social-rep" ng-repeat="social in $ctrl.rep.channels" >
                 <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('book')"><img src="assets/facebook-letter-logo.png" height="32px" width="32px"/></a></td>
-                <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('oogle')"><img src="assets/social.png" height="32px" width="32px"/></a></td>
+                <td><a target="_blank" href="http://plus.google.com/{{social.id}}" ng-if="social.type.includes('oogle')"><img src="assets/social.png" height="32px" width="32px"/></a></td>
                 <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('witter')"><img src="assets/twitter-logo-silhouette.png" height="32px" width="32px"/></a></td>
                 <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('ube')"><img src="assets/video.png" height="32px" width="32px"/></a></td>
               <!--  <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-switch-default><img src="assets/web-www-world-grid.png" height="32px" width="32px"/></a></td>-->
