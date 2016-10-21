@@ -7,6 +7,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
 
   console.log(bills)
 
+
   ctrl.billLimit = 15;
   ctrl.billBeginning = 0;
   ctrl.stateData;
