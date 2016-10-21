@@ -56,4 +56,4 @@ app.config(function($stateProvider, $urlRouterProvider){
       controller: 'ProfileController as ctrl'
     })
     $urlRouterProvider.otherwise('/')
-})
+});
