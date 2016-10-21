@@ -1,7 +1,10 @@
 app.factory('stateEnv', function () {
 return {
     getMySecretEnv: function () {
+      if('<%=ENV['GOOGLE_MAPS_API_KEY'] %>' !== 'null'){
         return "<%= ENV['GOOGLE_MAPS_API_KEY'] %>";
+      }
+      console.log('gmaps api not firing')
     }
   }
 });

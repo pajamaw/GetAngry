@@ -1,7 +1,10 @@
 app.factory('CivicEnv', function () {
 return {
     getMySecretEnv: function () {
+      if("<%= ENV['CIVIC_GOOGLE_API_KEY'] %>" !== 'null'){
         return "<%= ENV['CIVIC_GOOGLE_API_KEY'] %>";
+      }
+      console.log('civic google api key not firing')
     }
   }
 });
