@@ -1,5 +1,5 @@
 app.factory('bill', function($resource, BillEnv){
-  var theEnv = BillEnv.getMySecretEnv();
+  var theEnv = BillEnv.getMySecretEnv() || ENV['LEGISCAN_API_KEY']
   return $resource('https://api.legiscan.com/?key=' +theEnv + '&op=getMasterList&state=:state', {state: '@state'})
 });
 //###google doesn't have great info on their civics api column
