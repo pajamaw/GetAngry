@@ -6,7 +6,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-Dotenv::Railtie.load
+if defined? Dotenv
+  Dotenv::Railtie.load
+end
 
 module GetAngry
   class Application < Rails::Application
