@@ -1,7 +1,7 @@
 app.factory('SpecificRepEnv', function () {
 return {
     getMySecretEnv: function () {
-      if ('<%= ENV['FTM_API_KEY'] %>' !=='null'){
+      if ("<%= ENV['FTM_API_KEY'] %>" !=='null'){
         return "<%= ENV['FTM_API_KEY'] %>";
       }
       console.log('ftm api key not firing')
