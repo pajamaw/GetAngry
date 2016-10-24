@@ -3,28 +3,38 @@
   max-height:460px;
   border-right: 2px solid grey;
 }
-div.specific-rep-details{
-  padding-left: 20px;
-}
-div.specific-rep-details table tr{
-  padding-left: 10px;
-}
-div.details{
+
+div#bill-deets {
+  border-radius: 25px;
+  border: 5px solid black;
+  height: 100%;
+  padding: 10px;
   float:left;
-  padding-left: 20px;
-}
-div.details table tr{
-  display:inline;
-  padding-left: 10px;
+  width:100%
 }
 
-div.col-md-12.specific-rep{
-    border-radius: 25px;
-    border: 5px solid black;
+div#bill-deets div.sponsor-details {
+  height: 100%;
+  float:left;
 }
 
-section.specific-rep-details{
-    margin-top: -25px;
-    margin-left: -15px;
-    margin-bottom: -1px;
+div#bill-deets div.calendar {
+  height: 100%;
+  float:left;
+}
+div.specific-bill-events {
+    float: left;
+}
+
+div.specific-bill-sponsors {
+    float: left;
+    margin-right: 10px;
+}
+
+div.sponsor-details{
+    float:left;
+    margin: 10px;
+}
+div.calender{
+    margin: 10px;
 }

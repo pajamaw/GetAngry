@@ -3,40 +3,56 @@
 <div class="row">
   <div class="col-md-12 specific-bill">
     <br>
-      <article>
-        <section class="specific-bill-details">
+    <article>
+      <section class="specific-bill-details">
 
-          <div class="details">
+        <div id="bill-deets">
 
+          <div class="bill-details">
             <h3><a target="_blank" href="{{$ctrl.bill.bill.state_link}}">{{$ctrl.bill.bill.title}}</a></h3>
             <p>{{$ctrl.bill.bill.state}} {{$ctrl.bill.bill.session.session_name}}</p>
             <p>{{$ctrl.bill.bill.session_title}}</p>
-            <p>{{$ctrl.bill.bill.description}}</p>
+            <p ng-hide="{{$ctrl.bill.bill.description == $ctrl.bill.bill.title}}">{{ $ctrl.bill.bill.description}}</p>
             <p><a target="_blank" href="{{$ctrl.bill.bill.texts[0].state_link}}">Link to Full Text</a></p>
+          </div>
 
+
+
+          <div class="specific-bill-events">
+            <h3>Events</h3>
+            <table>
+              <tbody>
+
+                <tr class="calendar" ng-repeat="dates in $ctrl.bill.bill.calendar">
+                  <td class="event-description"><strong>{{dates.description}}</strong></td>
+                  <td class="event-details"><strong>What:</strong> {{dates.type}}</td>
+                  <td class="event-details"><strong>Where:</strong> {{dates.location}}</td>
+                  <td class="event-details"><strong>When:</strong> {{dates.time}}</td>
+                </tr>
+
+              </tbody>
+
+            </table>
           </div>
 
           <div class="specific-bill-sponsors">
             <h3>Sponsors</h3>
-            <div ng-repeat="sponsor in $ctrl.bill.bill.sponsors">
-              <p>{{sponsor.name}}</p>
-              <p>{{sponsor.party ==="R" ? "Republican" :"Democrat"}}</p>
-              <p>{{sponsor.ftm_eid}}</p>
-            </div>
+            <table>
+              <tbody>
+                <tr class="sponsor-details" ng-repeat="sponsor in $ctrl.bill.bill.sponsors">
+                  <td class="sponsor-name">{{sponsor.name}}</td>
+                  <td class="sponsor-party">{{sponsor.party === "R" ? "Republican" :"Democrat"}}</td>
+                <!--  Use this later<td class="sponsor-ftm">{{sponsor.ftm_eid}}</td>-->
+                </tr>
+              </tbody>
+            </table>
+
           </div>
 
-          <div class="specific-bill-events">
-          <h3>Events</h3>
-            <div class="calendar"ng-repeat="dates in $ctrl.bill.bill.calendar">
-              <p>{{dates.description}}</p>
-              <p>{{dates.type}}</p>
-              <p>{{dates.location}}</p>
-              <p>{{dates.time}}</p>
-            </div>
-          </div>
+        </div>
 
-        </section>
-      </article>
+      </section>
+    </article>
   </div>
 </div>
 <br>

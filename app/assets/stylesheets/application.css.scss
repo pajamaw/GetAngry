@@ -33,7 +33,6 @@
      min-height: 100%;
      width:80%;
      margin:auto;
-     z-index:1;
      background-color:white;
      overflow:hidden;
  }
@@ -98,7 +97,6 @@ nav.navbar.navbar-default.navbar-fixed-top{
 .default {
 
   height:0px;
-  overflow: hidden;
   -moz-transition: 1s;
   -ms-transition: 1s;
   -webkit-transition: 1s;
@@ -121,7 +119,6 @@ nav.navbar.navbar-default.navbar-fixed-top{
   list-style: none;
   margin: 0;
   padding: 0;
-  overflow: hidden;
   text-align:center;
 }
 .tabs__list li {
@@ -146,7 +143,8 @@ nav.navbar.navbar-default.navbar-fixed-top{
  td{
    background-color:white;
  }
- tbody {
+ .reps-table tbody,
+ .bills-table tbody {
      display: inline;
      height:155px
  }
@@ -164,7 +162,6 @@ tr.rep-info#rep-info {
 thead.thead-default th {
     width: 33%;
     position: absolute;
-
 }
 
 tr.Bills td{
@@ -217,7 +214,7 @@ because the rest of it disapears
      border-radius: 25px 0 0 25px;
  }
  img {
-   border-radius: 20px 0 0 20px;
+   border-radius: 25px 0 0 25px;
  }
 
  td#info,

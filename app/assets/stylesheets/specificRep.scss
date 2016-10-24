@@ -9,22 +9,48 @@ div.specific-rep-details{
 div.specific-rep-details table tr{
   padding-left: 10px;
 }
-div.details{
+section.specific-rep-details div.rep-details{
   float:left;
   padding-left: 20px;
 }
-div.details table tr{
+div.rep-details table tr{
   display:inline;
   padding-left: 10px;
 }
 
 div.col-md-12.specific-rep{
-    border-radius: 25px;
-    border: 5px solid black;
+  border-radius: 25px;
+  border: 5px solid black;
 }
 
 section.specific-rep-details{
-    margin-top: -25px;
-    margin-left: -15px;
-    margin-bottom: -1px;
+  margin-top: -25px;
+  margin-left: -15px;
+  margin-bottom: -1px;
+}
+
+td.event-description{
+    display:block;
+}
+td.event-details{
+    display:block;
+}
+
+tr.calendar{
+    display:block;
+    padding:10px;
+}
+div.specific-bill-events {
+    float:left;
+    display:block;
+    width:100%;
+}
+div.specific-bill-sponsors{
+    float:left;
+}
+.bill-details p{
+    padding-left:10px;
+}
+.sponsor-details td{
+    padding-left:10px;
 }
