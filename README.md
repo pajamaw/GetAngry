@@ -1,5 +1,6 @@
 
 #GetAngry
+
 ##GetInvolved
 
 ###About
@@ -13,7 +14,9 @@ It currently provides the following features:
 * Searchable bill queries (currently limited by how many bills you have decided to load - pressing the view additional button will increase your search ability)
 
 Features being finalized:
-* User profile that allows you to save certain bills and representatives and watch them
+* Ensuring all house-level representatives are displayed for their respective states (via proper integration of the govtrack api)
+* User profile
+* User profile allows you to save certain bills and representatives and watch them
 * D3 Visualizations of the money that Representatives have receieved and from who
 * D3 Visualizations of the money that bills have received and from who
 * more direct information on the sponsor's of the bills ( in addition to financial information)
@@ -22,3 +25,4 @@ Features being finalized:
 Features down the line:
 * User updates via keyterms selected
 * user updates on saved rep's and bills  
+* leaflet map district view upon entering zip/state view in background
