@@ -152,12 +152,11 @@ nav.navbar.navbar-default.navbar-fixed-top{
 /*bills table specific ccss*/
 tr.Bills {
     width: 100%;
-    height:auto;
     display: block;
     float: left;
 }
 tr.rep-info#rep-info {
-    height: 170.5px;
+    height: 160px;
     font-size: 13px;
 }
 thead.thead-default th {
@@ -179,6 +178,7 @@ tr.Bills td#billDate{
      &[class*="-add"]{
        background-color: blck;
      }*/
+     height:160px;
      min-width:270px;
      width: 30%;
      margin: 16px;
@@ -187,6 +187,7 @@ tr.Bills td#billDate{
      background-color: white;
      border-radius: 25px;
      border: 5px solid black;
+     overflow:hidden;
  }
  tr.rep-info.ng-enter, tr.rep-info.ng-move{
    transition: all 0.5s linear;
@@ -212,11 +213,13 @@ because the rest of it disapears
  td.img {
      float: left;
      border-radius: 25px 0 0 25px;
+     border: black;
      padding:0;
  }
  img {
    padding: 0;
    border-radius: 16px 0 0 16px;
+   border: none;
  }
 
  td#info,

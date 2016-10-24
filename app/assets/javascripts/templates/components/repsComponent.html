@@ -16,8 +16,8 @@
 
               <!--<tr ui-sref="home.rep({state: ctrl.state, party: $ctrl.repsc['officials'][num].party, office: office.name})"id="rep-info" class="rep-info" ng-repeat="num in office['officialIndices']" >-->
 
-                <tr id="rep-info" class="rep-info" ng-repeat="num in office['officialIndices']" >
-                    <td id="img"class="img"><img src="{{$ctrl.repsc['officials'][num].photoUrl || 'assets/no_picture.png'}}" height="160px" width="auto" />
+                <tr id="rep-info" class="rep-info" ng-repeat="num in office['officialIndices']">
+                    <td id="img"class="img"><img src="{{$ctrl.repsc['officials'][num].photoUrl || 'assets/no_picture.png'}}" height="160px" width="auto" /></td>
 
                     <td id="info"class="info">{{office.name}}</td>
                     <td id="info"class="info" ng-click="$ctrl.transferSpecificRepData($ctrl.repsc['officials'][num], office)"><a ui-sref="home.rep">{{$ctrl.repsc['officials'][num].name}}</a></td>
