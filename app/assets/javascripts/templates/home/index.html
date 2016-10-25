@@ -1,10 +1,15 @@
 
-<!--adding this manually until i find another way-->
+<!--adding this manually until i find another way  -->
+<div class="row without-entry well" id="elevator"  ng-hide="ctrl.stateData">
+  <h5 class="text-center" id="hideme"ng-hide="ctrl.stateData">Welcome to Get Involved, the easiest way to get all the information you need on <em>your</em> political environment.</h4>
+  <p class="text-center" id="hideme"ng-hide="ctrl.stateData">To get started type in your zip code or state abbreviation <br>and then click on a tab below</p>
+</div>
 
 <div class="row" id="search-bar">
   <div  class="col-md-12">
     <br>
-    <h3 class="text-center">{{ctrl.user.username ?  ctrl.user.username : 'Hello there'}}, what neighborhood are you interested in?</h2>
+    <!--<h3 class="text-center">{{ctrl.user.username ?  ctrl.user.username : 'Hello there'}}, what neighborhood are you interested in?</h2>-->
+    <h3 class="text-center">What neighborhood are you interested in?</h2>
       <article>
         <section class="text-center">
           <form class="form-inline" ng-submit="ctrl.resetBillsAndReps(ctrl.state)">
@@ -24,7 +29,8 @@
   </div>
 </div>
 <br>
-  <div class="row" ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}">
+
+  <div class="row" id="elevator"ng-show="ctrl.stateData"ng-class="{'default':!ctrl.stateData, 'rollup':ctrl.stateData}">
     <tabs >
       <tab label="reps">
         <ui-view>
