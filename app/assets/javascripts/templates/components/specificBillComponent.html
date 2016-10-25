@@ -8,7 +8,7 @@
       <div id="bill-deets">
 
         <div class="bill-details">
-          <h3><a target="_blank" href="{{$ctrl.bill.bill.state_link}}">{{$ctrl.bill.bill.title}}</a></h3>
+          <h3 class="bill-title"><a target="_blank" href="{{$ctrl.bill.bill.state_link}}">{{$ctrl.bill.bill.title}}</a></h3>
           <p>{{$ctrl.bill.bill.state}} {{$ctrl.bill.bill.session.session_name}}</p>
           <p>{{$ctrl.bill.bill.session_title}}</p>
           <p ng-hide="{{$ctrl.bill.bill.description == $ctrl.bill.bill.title}}">{{ $ctrl.bill.bill.description}}</p>
@@ -16,9 +16,10 @@
         </div>
 
 
-
+      <section class="color-change-bill">
         <div class="specific-bill-events">
-          <h3>Events</h3>
+          <h4>Events</h4>
+          <p ng-if="$ctrl.bill.bill.calendar.length == 0">There are no listed events at this time</p>
           <table>
             <tbody>
 
@@ -35,7 +36,8 @@
         </div>
 
         <div class="specific-bill-sponsors">
-          <h3>Sponsors</h3>
+          <h4>Sponsors</h4>
+          <p ng-if="$ctrl.bill.bill.sponsors.length == 0">There are no listed sponsors at this time</p>
           <table>
             <tbody>
               <tr class="sponsor-details" ng-repeat="sponsor in $ctrl.bill.bill.sponsors">
@@ -47,7 +49,7 @@
           </table>
 
         </div>
-
+      </section>
       </div>
 
     </section>
