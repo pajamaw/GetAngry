@@ -3,15 +3,11 @@
   max-height:460px;
   border-right: 2px solid black;
 }
-div.specific-rep-details{
-  padding-left: 20px;
-}
-div.specific-rep-details table tr{
-  padding-left: 10px;
-}
+
 section.specific-rep-details div.rep-details{
   float:left;
   padding-left: 20px;
+  background-color: #f8fafa;
 }
 div.rep-details table tr{
   display:inline;
@@ -21,6 +17,7 @@ div.rep-details table tr{
 div.col-md-12.specific-rep{
   border-radius: 25px;
   border: 5px solid black;
+  background-color: #f8fafa;
 }
 
 section.specific-rep-details{
