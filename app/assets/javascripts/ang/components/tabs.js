@@ -1,4 +1,7 @@
 app.component('tabs', {
+  bindings:{
+    state: '<'
+  },
   transclude: true,
   controller: function () {
     this.$onInit = function () {
@@ -15,7 +18,7 @@ app.component('tabs', {
     };
   },
   template: `
-    <div class="tabs">
+    <div class="tabs" >
       <ul class="tabs__list">
         <li ng-repeat="tab in $ctrl.tabs">
           <a href=""
