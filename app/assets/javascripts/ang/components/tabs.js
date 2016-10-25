@@ -3,7 +3,7 @@ app.component('tabs', {
     state: '<'
   },
   transclude: true,
-  controller: function () {
+  controller: function ($timeout) {
     this.$onInit = function () {
       this.tabs = [];
     };
@@ -16,6 +16,7 @@ app.component('tabs', {
       }
       this.tabs[index].selected = true;
     };
+
   },
   template: `
     <div class="tabs" >

@@ -16,6 +16,10 @@ app.component('tab', {
         label: this.label,
         selected: false
       };
+      if(this.tab.label=== 'reps'){
+        this.tab.selected = true;
+      }
+      ///forcing the reps to be the default tab loaded
       this.tabs.addTab(this.tab);
     };
   }
