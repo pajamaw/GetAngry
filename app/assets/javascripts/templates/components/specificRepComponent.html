@@ -27,7 +27,6 @@
                 <td><a target="_blank" href="http://plus.google.com/{{social.id}}" ng-if="social.type.includes('oogle')"><img src="assets/social.png" height="32px" width="32px"/></a></td>
                 <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('witter')"><img src="assets/twitter-logo-silhouette.png" height="32px" width="32px"/></a></td>
                 <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-if="social.type.includes('ube')"><img src="assets/video.png" height="32px" width="32px"/></a></td>
-              <!--  <td><a target="_blank" href="http://www.{{social.type}}.com/{{social.id}}" ng-switch-default><img src="assets/web-www-world-grid.png" height="32px" width="32px"/></a></td>-->
               </tr>
               <tr class="social-rep" ng-repeat="web in $ctrl.rep.urls" >
                 <td><a target="_blank" href="{{web}}"><img src="assets/web-www-world-grid.png" height="32px" width="32px"/></a></td>
@@ -39,31 +38,10 @@
           </table>
 
         </div>
-        <!--  <p><a target="_blank" href="{{$ctrl.rep}}">Link to Full Text</a></p>-->
-<!--{"name":"Joseph R. Biden","address":[{"line1":"The White House","line2":"1600 pennsylvania avenue nw"
-,"city":"washington","state":"DC","zip":"20500"}],"party":"Democratic","phones":["(202) 456-1111"],"urls":
-["http://www.whitehouse.gov/"],"photoUrl":
-"http://www.whitehouse.gov/sites/default/files/imagecache/admin_official_lowres/administration-official/ao_image/vp_portrait.jpeg",
-"channels":[{"type":"GooglePlus","id":"+whitehouse"},{"type":"Facebook","id":"whitehouse"},{"type":"Twitter","id":"whitehouse"}]}-->
-      <!--  <h3>Sponsors</h3>--->
-
-    <!--    < ng-repeat="sponsor in $ctrl.rep.rep.sponsors">
-          <p>{{sponsor.name}}</p>
-          <p>{{sponsor.party ==="R" ? "Republican" :"Democrat"}}
-          <p>{{sponsor.ftm_eid}}
-        </rep>-->
-
-        <!--<h3> Upcoming events</h3>
-      <div class="calendar"ng-repeat="dates in $ctrl.rep.rep.calendar">
-          <h3>Events</h3>
-          <p>{{dates.date}}
-          <p>{{dates.description}}
-          <p>{{dates.location}}
-          <p>{{dates.time}}
-          <p>{{dates.type}}
-        </div>-->
-
     </section>
   </div>
+  <!-- <div class="col-md-4" id="rep-finances">
+    {{$ctrl.rep}}
+  </div> -->
 </div>
 <br>

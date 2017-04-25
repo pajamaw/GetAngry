@@ -81,6 +81,8 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
   }
 
   var changeToState = function(){
+    console.log('displaying changeToState function trying to find lesss hacky way to correctly get teh state')
+    console.log(ctrl.stateData)
     ctrl.state = ctrl.stateData.results[0].formatted_address.split(",")[1].replace(/[0-9]/g, '').replace(/\s/g, '')
     ///ctrl.zipCode = response.results[0].address_components[4].short_name
     console.log(`changeToState:  checking the ctrl.state zipcode change to state: ${ctrl.stateData.results[0].formatted_address.split(',')[1].replace(/[0-9]/g, '').replace(/\s/g, '')}`)

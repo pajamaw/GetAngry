@@ -27,8 +27,6 @@ app.config(function($stateProvider, $urlRouterProvider){
     .state('home.rep', {
       url: '/rep',
       template: `<specific-rep rep="ctrl.specificRep" office="ctrl.specificOffice">Loading...</specific-rep>`
-
-
     })
     .state('login',{
       url: '/login',
