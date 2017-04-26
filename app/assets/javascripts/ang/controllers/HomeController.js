@@ -22,7 +22,7 @@ app.controller('HomeController', function HomeController($timeout, $scope, $q, A
     checkBills();
   }
 
-  var waitForBills =  ()=> new Promise((resolve, reject)=> { setTimeout(resolve, 1000)})
+  var waitForBills = ()=> new Promise((resolve, reject)=> { setTimeout(resolve, 1000)})
 
   waitForBills().then(function(){
 
