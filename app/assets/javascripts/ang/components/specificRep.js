@@ -13,6 +13,8 @@ app.component('specificRep', {
       this.yearOptTwo = 2012
     }else if (this.office.name.includes('Governor')){
       this.officeAbbreviation = 'G'
+      this.yearOptOne = 2016
+      this.yearOptTwo = 2012
     } else if (this.office.name.includes('House')){
       //not available at the moment
     }

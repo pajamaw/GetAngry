@@ -11,16 +11,16 @@ app.component('chart', {
         d3.select("svg").remove();
         let color = d3.scaleOrdinal(d3.schemeCategory10);
         let data = dt.map((el, i) => Object.assign({}, {cash: parseFloat(el.Total_$.Total_$)}, {name: el.General_Industry.General_Industry}) )
-        var tooltip = d3.select($element[0]).append("div").attr("class", "toolTip")
         let svg = d3.select($element[0])
           .append("svg")
           .attr("height", 500)
-          .attr("width", 1000)
+          .attr("width", 1000);
         let margin = {top: 20, right: 20, bottom: 120, left: 100},
             width = svg.attr("width") - margin.left - margin.right,
             height = svg.attr("height") - margin.top - margin.bottom;
         let x = d3.scaleBand().rangeRound([0, width]).padding([1]),
             y = d3.scaleLinear().rangeRound([height, 0]);
+        var tooltip = d3.select($element[0]).append("div").attr("class", "toolTip")
 
         let g = svg.append("g")
           .attr("transform", `translate(${margin.left},${margin.top})`);
@@ -39,11 +39,12 @@ app.component('chart', {
 
           g.append("g")
               .attr("class", "axis axis--y")
-            .call(d3.axisLeft(y).tickValues([0, 10000, 100000, 1000000]))
+            .call(d3.axisLeft(y).tickValues([0, 50000, 100000, 1000000]))
               .selectAll('text')
               .attr("y", 6)
               .attr("dy", ".15em")
               .attr("text-anchor", "end")
+
 
           g.selectAll(".bar")
             .data(data.slice(1, 11))
@@ -54,15 +55,13 @@ app.component('chart', {
               .attr('width', 10)
               .attr("height", function(d) { return height - y(d.cash); })
               .style("fill", function(d, i){return color(i)})
-              .on("mouseover", function(d, i){
+              .on("mouseover", function(d){
                   tooltip
-                    .style("left", (d3.event.pageX - 50) + "px")
-                    .style("top", (d3.event.pageY - 70) + "px")
+                    .style("left", "444px")
+                    .style("top", "50px")
                     .style("display", "inline-block")
-                    .html((d.name) + "<br>" + "$" + (d.cash))
-                    // .style('fill', color(i))
+                    .html((d.name) + "<br>" + "$" + (d.cash.toLocaleString()))
               })
-              .on("mouseout", function(d){ tooltip.style("display", "none");});
             });
 
           //data = [...new Array(100)].map(() => Math.round(Math.random() * 1000)),
@@ -94,12 +93,11 @@ app.component('chart', {
    this.$doCheck = function(){
      if(!angular.equals(previousFinance, this.finance)){
         if(this.finance){
-          $ctrl.loading = "Top 10 Contributions By Sector"
+          $ctrl.loading = "Top 10 Contributions By Sector for Most Recent Election"
           previousFinance = this.finance;
           this.createChart(previousFinance);
           console.log('creating it')
         }
-        console.log(this.finance, 'changes')
       }else{
         console.log(this.finance,' nochanges')
       }
