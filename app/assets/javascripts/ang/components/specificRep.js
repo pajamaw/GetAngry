@@ -28,16 +28,16 @@ app.component('specificRep', {
       if (!$ctrlRep.candidate(res).Candidate.includes(lastName)){
         console.log('trying other term of candidate')
         $ctrlRep.candidateArray($ctrlRep.yearOptTwo).$promise.then(function(resOpt){
-          let cId = $ctrlRep.candidate(resOpt).id;
+          let cIdTwo = $ctrlRep.candidate(resOpt).id;
 
-          RepFinanceService.get({id: cId}).$promise.then(function(data){
-            $ctrlRep.finance = data.records
+          RepFinanceService.get({id: cIdTwo}).$promise.then(function(dataOpt){
+            $ctrlRep.finance = dataOpt.records
             console.log($ctrlRep.finance)
           })
         })
       }else{
-        let cId = $ctrlRep.candidate(res).id
-        RepFinanceService.get({id: cId}).$promise.then(function(data){
+        let cIdOne = $ctrlRep.candidate(res).id
+        RepFinanceService.get({id: cIdOne}).$promise.then(function(data){
           $ctrlRep.finance = data.records
           console.log($ctrlRep.finance)
         })
