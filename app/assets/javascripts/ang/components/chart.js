@@ -2,28 +2,29 @@ app.component('chart', {
   bindings: {
     finance: '='
   },
-  template: '<div class="chart-container"></div>',
+  template: '<div class="chart-container text-center"><h3>{{$ctrl.loading}}</div>',
   controller: function ($element, d3Factory) {
-    var $ctrl = this;
-    var previousFinance;
+    let $ctrl = this;
+    let previousFinance;
     this.createChart = function(dt) {
       d3Factory.d3().then(function(d3) {
         d3.select("svg").remove();
-        var data = dt.map((el, i) => Object.assign({}, {cash: parseFloat(el.Total_$.Total_$)}, {name: el.General_Industry.General_Industry}) )
-        var svg = d3.select($element[0])
+        let color = d3.scaleOrdinal(d3.schemeCategory10);
+        let data = dt.map((el, i) => Object.assign({}, {cash: parseFloat(el.Total_$.Total_$)}, {name: el.General_Industry.General_Industry}) )
+        var tooltip = d3.select($element[0]).append("div").attr("class", "toolTip")
+        let svg = d3.select($element[0])
           .append("svg")
           .attr("height", 500)
           .attr("width", 1000)
-        var margin = {top: 20, right: 20, bottom: 120, left: 100},
+        let margin = {top: 20, right: 20, bottom: 120, left: 100},
             width = svg.attr("width") - margin.left - margin.right,
             height = svg.attr("height") - margin.top - margin.bottom;
-        console.log(data);
-        var x = d3.scaleBand().rangeRound([0, width]).padding([1]),
+        let x = d3.scaleBand().rangeRound([0, width]).padding([1]),
             y = d3.scaleLinear().rangeRound([height, 0]);
 
-        var g = svg.append("g")
+        let g = svg.append("g")
           .attr("transform", `translate(${margin.left},${margin.top})`);
-          x.domain(data.slice(1,10).map((x)=>x.name), 0.1)
+          x.domain(data.slice(1,11).map((x)=>x.name), 0.1)
           y.domain([0, d3.max(data.slice(1,10), function(d) { return d.cash; })]);
 
           g.append("g")
@@ -45,14 +46,25 @@ app.component('chart', {
               .attr("text-anchor", "end")
 
           g.selectAll(".bar")
-            .data(data.slice(1, 10))
+            .data(data.slice(1, 11))
             .enter().append("rect")
               .attr("class", "bar")
               .attr("x", function(d) { return x(d.name)})
               .attr("y", function(d) { return y(d.cash)})
               .attr('width', 10)
-              .attr("height", function(d) { return height - y(d.cash); });
+              .attr("height", function(d) { return height - y(d.cash); })
+              .style("fill", function(d, i){return color(i)})
+              .on("mouseover", function(d, i){
+                  tooltip
+                    .style("left", (d3.event.pageX - 50) + "px")
+                    .style("top", (d3.event.pageY - 70) + "px")
+                    .style("display", "inline-block")
+                    .html((d.name) + "<br>" + "$" + (d.cash))
+                    // .style('fill', color(i))
+              })
+              .on("mouseout", function(d){ tooltip.style("display", "none");});
             });
+
           //data = [...new Array(100)].map(() => Math.round(Math.random() * 1000)),
           // width = 500,
           // height = 500,
@@ -65,7 +77,7 @@ app.component('chart', {
           // .innerRadius(min / 2 * 0.5);
           // console.log(data)
           // svg.attr({width: width, height: height});
-          // var g = svg.append('g')
+          // let g = svg.append('g')
           // .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
           //
           // g.selectAll('path').data(pie(data))
@@ -76,11 +88,13 @@ app.component('chart', {
       };
     this.$onInit = function() {
       console.log('init')
+      $ctrl.loading = "Loading Financial Contributions.."
       this.createChart();
     }
    this.$doCheck = function(){
      if(!angular.equals(previousFinance, this.finance)){
         if(this.finance){
+          $ctrl.loading = "Top 10 Contributions By Sector"
           previousFinance = this.finance;
           this.createChart(previousFinance);
           console.log('creating it')

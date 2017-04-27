@@ -3,7 +3,16 @@
   max-height:460px;
   border-right: 2px solid black;
 }
-
+div.toolTip {
+  min-width: 80px;
+  height: auto;
+  background: none repeat scroll 0 0 #ffffff;
+  border: 1px solid #6F257F;
+  padding: 14px;
+  display: none;
+  position: absolute;
+  text-align: center;
+}
 section.specific-rep-details div.rep-details{
   float:left;
   padding-left: 20px;
