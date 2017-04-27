@@ -6,7 +6,8 @@ app.component('specificRep', {
   },
   controller: function($element, $compile, RepFinanceService, RepFtmIdService){
     var $ctrlRep = this;
-    this.candidateArray = RepFtmIdService.get({state: 'ny', year: '2016', office: 'U'})
+    this.state = office.divisionId.slice(office.divisionId.lastIndexOf(':') + 1, office.divisionId.length).toLowerCase()
+    this.candidateArray = RepFtmIdService.get({state: this.state, year: '2016', office: 'U'})
     this.candidateArray.$promise.then(function(res){
       var cId = res.records[0].Candidate.id
       RepFinanceService.get({id: cId}).$promise.then(function(finance){

@@ -5,7 +5,7 @@ app.factory('d3Factory', function($document, $q, $rootScope, $window){
 
   scriptTag.type = 'text/javascript';
   scriptTag.async = true;
-  scriptTag.src = 'http://d3js.org/d3.v3.min.js';
+  scriptTag.src = 'http://d3js.org/d3.v4.min.js';
   scriptTag.onreadystatechange = onReadyStateChange;
   scriptTag.onload = onScriptLoad;
 
