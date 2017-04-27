@@ -80,15 +80,14 @@ app.component('chart', {
     }
    this.$doCheck = function(){
      if(!angular.equals(previousFinance, this.finance)){
-        if(this.finance && this.finance.finance){
-          previousFinance = this.finance.finance;
+        if(this.finance){
+          previousFinance = this.finance;
           this.createChart(previousFinance);
           console.log('creating it')
         }
-        console.log('changes')
+        console.log(this.finance, 'changes')
       }else{
         console.log(this.finance,' nochanges')
-        console.log(this)
       }
     }
   }
