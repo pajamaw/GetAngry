@@ -12,7 +12,6 @@ app.config(function($stateProvider, $urlRouterProvider){
         }
       },
       controller: 'HomeController as ctrl'
-
     })
     .state('home.bill', {
       url: '/bill/:billid',

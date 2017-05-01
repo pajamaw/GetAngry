@@ -4,7 +4,5 @@ app.component('specificBill', {
     bill: '<'
   },
   controller: function(){
-    console.log(this.bill)
-    
   }
 });

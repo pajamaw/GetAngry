@@ -20,9 +20,6 @@ function NavController($scope, $state,Auth){
   $scope.$on('devise:logout', function(e, user){
     $scope.user = {};
     window.location.href = $state.href('home', {absolute: true});
-    // reload the page could also be done with
-    //a broadcast
-    //and a listener
     window.location.reload();
   });
 

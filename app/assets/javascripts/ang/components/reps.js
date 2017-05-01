@@ -9,7 +9,6 @@ app.component('repsCom', {
       console.log(office)
       $rootScope.$emit('getSpecificRepData', rep)
       $rootScope.$emit('getSpecificOfficeData', office)
-      console.log('timetouts set')
     }
   }
 });
